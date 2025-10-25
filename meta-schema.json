@@ -9,7 +9,9 @@
     "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
     "description": { "type": "string" },
     "author": { "type": "string" },
-    "tags": { "type": "array", "items": { "type": "string" } }
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "icon": { "type": "string", "description": "Optional icon URL or name", "default": "" }
+
   },
   "additionalProperties": false
 }
