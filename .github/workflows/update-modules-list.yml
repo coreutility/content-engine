@@ -58,6 +58,8 @@ jobs:
               if (schema.properties.version) meta.version = "1.0.0";
               if (schema.properties.description) meta.description = `Module ${name}`;
               if (schema.properties.tags) meta.tags = [];
+              if (schema.properties.icon) meta.icon = schema.properties.icon.default || "";
+
             }
             return meta;
           }
