@@ -5,8 +5,9 @@
     "version": "1.0.0",
     "description": "Module editor",
     "tags": [],
+    "icon": "",
     "path": "modules/editor",
-    "lastUpdated": "2025-10-25T12:54:02.615Z"
+    "lastUpdated": "2025-10-25T13:22:28.793Z"
   },
   {
     "name": "table",
@@ -14,8 +15,9 @@
     "version": "1.0.0",
     "description": "Module table",
     "tags": [],
+    "icon": "",
     "path": "modules/table",
-    "lastUpdated": "2025-10-25T12:54:02.617Z"
+    "lastUpdated": "2025-10-25T13:22:28.794Z"
   },
   {
     "name": "text",
@@ -23,7 +25,8 @@
     "version": "1.0.0",
     "description": "Module text",
     "tags": [],
+    "icon": "",
     "path": "modules/text",
-    "lastUpdated": "2025-10-25T12:54:02.618Z"
+    "lastUpdated": "2025-10-25T13:22:28.795Z"
   }
 ]
