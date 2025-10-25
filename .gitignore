@@ -1,0 +1,15 @@
+node_modules
+dist
+out
+.DS_Store
+.eslintcache
+*.log*
+c_a_c_h_e
+s_e_s_s_i_o_n
+t_m_p
+__pycache__
+poetry.lock
+m_o_d_e_l
+.utility.json
+.env.json
+.myapprc.json
