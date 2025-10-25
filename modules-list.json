@@ -1,0 +1,29 @@
+[
+  {
+    "name": "editor",
+    "title": "Editor",
+    "version": "1.0.0",
+    "description": "Module editor",
+    "tags": [],
+    "path": "modules/editor",
+    "lastUpdated": "2025-10-25T12:54:02.615Z"
+  },
+  {
+    "name": "table",
+    "title": "Table",
+    "version": "1.0.0",
+    "description": "Module table",
+    "tags": [],
+    "path": "modules/table",
+    "lastUpdated": "2025-10-25T12:54:02.617Z"
+  },
+  {
+    "name": "text",
+    "title": "Text",
+    "version": "1.0.0",
+    "description": "Module text",
+    "tags": [],
+    "path": "modules/text",
+    "lastUpdated": "2025-10-25T12:54:02.618Z"
+  }
+]
