@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const r=async a=>({set:async(e,n)=>{console.log(`--hydrator [${e.data.curr.type}]`);const d={r:"",style:"",evt:{change:()=>{n?.change({_$p:e})}}},c=document.getElementById(a.f.name("text"));return(async t=>{n?.add({$d:e.data.curr.data,el:t})})(c),d}});exports.hydrator=r;exports.index=r;
