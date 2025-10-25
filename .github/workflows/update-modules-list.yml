@@ -1,0 +1,123 @@
+name: Update Modules List
+
+on:
+  push:
+    paths:
+      - "modules/**"
+      - "meta-schema.json"
+  workflow_dispatch: {}
+
+jobs:
+  update-list:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install AJV
+        run: npm install ajv ajv-formats
+
+      - name: Validate & update modules list
+        run: |
+          node <<'EOF'
+          import fs from 'fs';
+          import path from 'path';
+          import Ajv from 'ajv';
+          import addFormats from 'ajv-formats';
+
+          const baseDir = 'modules';
+          const listFile = 'modules-list.json';
+          const schemaFile = 'meta-schema.json';
+
+          const schema = JSON.parse(fs.readFileSync(schemaFile, 'utf8'));
+          const ajv = new Ajv({ allErrors: true, useDefaults: true });
+          addFormats(ajv);
+          const validate = ajv.compile(schema);
+
+          const dirs = fs.readdirSync(baseDir, { withFileTypes: true })
+            .filter(d => d.isDirectory())
+            .map(d => d.name);
+
+          const modules = [];
+          const created = [];
+          const invalid = [];
+
+          // helper: generate a default meta.json from schema
+          function generateDefaultMeta(name) {
+            const meta = { name };
+            if (schema.properties) {
+              if (schema.properties.title) meta.title = name.charAt(0).toUpperCase() + name.slice(1);
+              if (schema.properties.version) meta.version = "1.0.0";
+              if (schema.properties.description) meta.description = `Module ${name}`;
+              if (schema.properties.tags) meta.tags = [];
+            }
+            return meta;
+          }
+
+          for (const dir of dirs) {
+            const modulePath = path.join(baseDir, dir);
+            const metaFile = path.join(modulePath, 'meta.json');
+            const stats = fs.statSync(modulePath);
+            let meta;
+
+            if (!fs.existsSync(metaFile)) {
+              // auto-create meta.json
+              meta = generateDefaultMeta(dir);
+              fs.writeFileSync(metaFile, JSON.stringify(meta, null, 2));
+              created.push(dir);
+              console.log(`🆕 Created default meta.json for module: ${dir}`);
+            } else {
+              try {
+                meta = JSON.parse(fs.readFileSync(metaFile, 'utf8'));
+              } catch (err) {
+                invalid.push({ module: dir, error: 'Invalid JSON format' });
+                continue;
+              }
+            }
+
+            const valid = validate(meta);
+            if (!valid) {
+              invalid.push({
+                module: dir,
+                error: ajv.errorsText(validate.errors)
+              });
+              continue;
+            }
+
+            modules.push({
+              ...meta,
+              path: modulePath,
+              lastUpdated: stats.mtime.toISOString()
+            });
+          }
+
+          if (invalid.length > 0) {
+            console.error("❌ Validation errors:");
+            console.error(JSON.stringify(invalid, null, 2));
+            process.exit(1);
+          }
+
+          fs.writeFileSync(listFile, JSON.stringify(modules, null, 2));
+          console.log("✅ Updated", listFile);
+
+          if (created.length > 0) {
+            console.log("✨ Auto-created meta.json for:", created.join(", "));
+          }
+          EOF
+
+      - name: Commit and push if changed
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add modules-list.json modules/*/meta.json
+          git diff --cached --quiet || (git commit -m "chore: update modules list + auto meta.json" && git push)
+

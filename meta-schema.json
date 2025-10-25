@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Module Meta Schema",
+  "type": "object",
+  "required": ["name", "title", "version", "description"],
+  "properties": {
+    "name": { "type": "string", "pattern": "^[a-z0-9-_]+$" },
+    "title": { "type": "string" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "description": { "type": "string" },
+    "author": { "type": "string" },
+    "tags": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}
+
