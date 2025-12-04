@@ -13,7 +13,9 @@
     "vite": "^7.1.7",
     "vite-plugin-dts": "^4.5.4"
   },
-
+  "dependencies": {
+    "content_engine_lib": "github:coreutility/content-engine-lib#main"
+  },
 
   "main": "./dist/index.umd.cjs",
   "module": "./dist/index.es.js",
