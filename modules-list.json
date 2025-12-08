@@ -7,7 +7,17 @@
     "tags": [],
     "icon": "",
     "path": "modules/editor",
-    "lastUpdated": "2025-10-25T13:22:28.793Z"
+    "lastUpdated": "2025-12-08T05:39:25.419Z"
+  },
+  {
+    "name": "explorer",
+    "title": "Explorer",
+    "version": "1.0.0",
+    "description": "Module explorer",
+    "tags": [],
+    "icon": "",
+    "path": "modules/explorer",
+    "lastUpdated": "2025-12-08T05:39:25.422Z"
   },
   {
     "name": "table",
@@ -17,7 +27,7 @@
     "tags": [],
     "icon": "",
     "path": "modules/table",
-    "lastUpdated": "2025-10-25T13:22:28.794Z"
+    "lastUpdated": "2025-12-08T05:39:25.422Z"
   },
   {
     "name": "text",
@@ -27,6 +37,6 @@
     "tags": [],
     "icon": "",
     "path": "modules/text",
-    "lastUpdated": "2025-10-25T13:22:28.795Z"
+    "lastUpdated": "2025-12-08T05:39:25.423Z"
   }
 ]
