@@ -1,0 +1,129 @@
+{
+  "l": [
+    {
+      "id": "3e1bc78c-104f-4f6f-aa87-ee295db8ad7c",
+      "type": "explorer",
+      "data": {
+        "data": "",
+        "theme": "light",
+        "foo": {
+          "txt": ""
+        },
+        "title": "Content-engine Docs",
+        "files": [
+          {
+            "id": "file-0",
+            "name": "welcome",
+            "type": "file",
+            "path": "/welcome",
+            "content": {
+              "config": {
+                "lazy_lib": {
+                  "renderer_src": "https://cdn.jsdelivr.net/gh/coreutility/content-engine/modules/{*}/dist/renderer.es.js",
+                  "hydrator_src": "https://cdn.jsdelivr.net/gh/coreutility/content-engine/modules/{*}/dist/hydrator.es.js",
+                  "editor_src": "https://cdn.jsdelivr.net/gh/coreutility/content-engine/modules/{*}/dist/editor.es.js"
+                }
+              },
+              "data": {
+                "l": [
+                  {
+                    "id": "3e1bc78c-104f-4f6f-aa87-ef295db8aj9s",
+                    "type": "text",
+                    "data": {
+                      "data": "\n                                          <b>Welcome!</b>\n<p>Content-Engine lets you build interfaces from pure data.\nThese docs will guide you through setup, custom modules, and everything else you need to integrate it into your app.</p>\n                                          ",
+                      "theme": "light",
+                      "foo": ""
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "folder-22",
+            "name": "Module Development",
+            "type": "folder",
+            "path": "/src",
+            "children": []
+          },
+          {
+            "id": "folder-1",
+            "name": "Implementation",
+            "type": "folder",
+            "path": "/src",
+            "children": [
+              {
+                "id": "folder-2",
+                "name": "vanilla-ts",
+                "type": "folder",
+                "path": "/src/components",
+                "children": [
+                  {
+                    "id": "file-3",
+                    "name": "Installation",
+                    "type": "file",
+                    "path": "/src/components/Button.tsx",
+                    "content": {
+                      "config": {
+                        "lazy_lib": {
+                          "renderer_src": "https://cdn.jsdelivr.net/gh/coreutility/content-engine/modules/{*}/dist/renderer.es.js",
+                          "hydrator_src": "https://cdn.jsdelivr.net/gh/coreutility/content-engine/modules/{*}/dist/hydrator.es.js",
+                          "editor_src": "https://cdn.jsdelivr.net/gh/coreutility/content-engine/modules/{*}/dist/editor.es.js"
+                        }
+                      },
+                      "data": {
+                        "l": [
+                          {
+                            "id": "3e1bc78c-104f-4f6f-aa87-ef295db8aj9s",
+                            "type": "text",
+                            "data": {
+                              "data": "\n\n                                          <div class=\"h-5\"></div>\n\n                                          <b>Install the package via NPM </b>\n\n                                          <div class=\"h-5\"></div>\n\n                                          <p>$ npm i content-engine-lib</p>\n\n                                          <div class=\"h-8\"></div>\n\n\n                                          <b>Install the package via Github </b>\n\n\n                                          <div class=\"h-5\"></div>\n\n                                          <p>$ npm install github:coreutility/content-engine-lib#main</p>\n                                          \n                                          ",
+                              "theme": "light",
+                              "foo": ""
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "id": "file-765897",
+                    "name": "Usage",
+                    "type": "file",
+                    "path": "/src/components/Button.tsx",
+                    "content": {
+                      "config": {
+                        "lazy_lib": {
+                          "renderer_src": "https://cdn.jsdelivr.net/gh/coreutility/content-engine/modules/{*}/dist/renderer.es.js",
+                          "hydrator_src": "https://cdn.jsdelivr.net/gh/coreutility/content-engine/modules/{*}/dist/hydrator.es.js",
+                          "editor_src": "https://cdn.jsdelivr.net/gh/coreutility/content-engine/modules/{*}/dist/editor.es.js"
+                        }
+                      },
+                      "data": {
+                        "l": [
+                          {
+                            "id": "3e1bc78c-104f-4f6f-aa87-ef295db8aj9s",
+                            "type": "text",
+                            "data": {
+                              "data": "\n\n                                          <div class=\"h-5\"></div>\n\n                                          <b>Coming soon </b>\n \n                                          \n                                          ",
+                              "theme": "light",
+                              "foo": ""
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "expandedFolders": [
+          "folder-1"
+        ],
+        "activeFile": "file-0"
+      }
+    }
+  ]
+}
