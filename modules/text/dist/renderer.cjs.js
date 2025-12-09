@@ -1,9 +1,9 @@
-"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const n=async e=>({set:async(r,d)=>{console.log(`--renderer [${r.data.curr.type}]`);const a={value:()=>r.data.curr.data.data};return{r:`
-                <div class="${e.f.name("text")}" id="${e.f.name("text")}"  >
-                  ${a.value()}
-                </div>
-                `,style:(()=>{let t="";return t=`
-                .${e.f.name("text")} {
+"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const e=async r=>({set:async(a,n)=>{console.log(`--renderer [${a.data.curr.type}]`),a.data.curr.data.e_tag=a.data.curr.data?.e_tag||"div";const d={value:async()=>{if(a.data.curr.data.load=="remote"){if(!a.data.curr.data.data.startsWith("http://")&&!a.data.curr.data.data.startsWith("https://"))throw new Error(`when [load=${a.data.curr.data.load}] then [data] must be a url!`);return await(await fetch(a.data.curr.data.data)).text()}return a.data.curr.data.data}};return{r:await(async()=>`
+                <${a.data.curr.data.e_tag} class="${r.f.name("text")}" id="${r.f.name("text")}"  >
+                  ${await d.value()}
+                </${a.data.curr.data.e_tag}>
+                `)(),style:(()=>{let t="";return t=`
+                .${r.f.name("text")} {
                    background: transparent;
                 }
-                `,t})()}}});exports.index=n;exports.renderer=n;
+                `,t})()}}});exports.index=e;exports.renderer=e;

@@ -14,6 +14,8 @@ type _$p_TYP = {
             "type": "text";
             "data": {
                 "data": string;
+                "load"?: "direct" | "remote";
+                "e_tag"?: string;
             };
         };
     };
