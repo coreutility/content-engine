@@ -22,55 +22,30 @@ let _data = {
 
     ]
 };
+const _cnf = {
+  lib:[
+    {
+      name:`text`,
+      renderer_src:`http://localhost:5173/src/renderer/index.ts`,
+      hydrator_src:`http://localhost:5173/src/hydrator/index.ts`,
+      editor_src:`http://localhost:5173/src/editor/index.ts`,
+      //test.. [dist]
+      /*renderer_src:`http://localhost:5173/dist/renderer.es.js`,
+      hydrator_src:`http://localhost:5173/dist/hydrator.es.js`,
+      editor_src:`http://localhost:5173/dist/editor.es.js`,*/
+    }
+  ],
+  /*lazy_lib: {
+    renderer_src: `http://localhost:5173/src/l/{*}/renderer/index.ts`,
+    hydrator_src: `http://localhost:5173/src/l/{*}/hydrator/index.ts`,
+    editor_src: `http://localhost:5173/src/l/{*}/editor/index.ts`,
+  }*/
+};
 
 //set..
-const _ce_renderer = await ce_renderer({
-  lib:[
-    /*{
-      renderer_src:`table`,
-      hydrator_src:`table`,
-      name:`table`,
-    }*/
-    {
-      renderer_src:`http://localhost:5173/src/renderer/index.ts`,
-      hydrator_src:`http://localhost:5173/src/hydrator/index.ts`,
-      editor_src:`http://localhost:5173/src/editor/index.ts`,
-      name:`text`,
-    }
-  ],
-  /*lazy_lib: {
-    renderer_src: `http://localhost:5173/src/l/{*}/renderer/index.ts`,
-    hydrator_src: `http://localhost:5173/src/l/{*}/hydrator/index.ts`,
-    editor_src: `http://localhost:5173/src/l/{*}/editor/index.ts`,
-  }*/
-});
-const _ce_hydrator = await ce_hydrator({
-  lib:[
-    /*{
-      renderer_src:`table`,
-      hydrator_src:`table`,
-      name:`table`,
-    }*/
-    {
-      renderer_src:`http://localhost:5173/src/renderer/index.ts`,
-      hydrator_src:`http://localhost:5173/src/hydrator/index.ts`,
-      editor_src:`http://localhost:5173/src/editor/index.ts`,
-      name:`text`,
-    }
-  ],
-  /*lazy_lib: {
-    renderer_src: `http://localhost:5173/src/l/{*}/renderer/index.ts`,
-    hydrator_src: `http://localhost:5173/src/l/{*}/hydrator/index.ts`,
-    editor_src: `http://localhost:5173/src/l/{*}/editor/index.ts`,
-  }*/
-});
-/*const _ce_editor = await ce_editor({
-  lazy_lib: {
-    renderer_src: `http://localhost:5173/src/l/{*}/renderer/index.ts`,
-    hydrator_src: `http://localhost:5173/src/l/{*}/hydrator/index.ts`,
-    editor_src: `http://localhost:5173/src/l/{*}/editor/index.ts`,
-  }
-});*/
+const _ce_renderer = await ce_renderer(_cnf);
+const _ce_hydrator = await ce_hydrator(_cnf);
+/*const _ce_editor = await ce_editor(_cnf);*/
 
 
 
