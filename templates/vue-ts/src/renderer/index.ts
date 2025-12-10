@@ -38,7 +38,7 @@ const index = async (_p:_p_TYP) => {
                 let _n = html;
                 return `
                  <div>
-                    ${_n}       <!-- static renderer HTML -->
+                    ${_n}
                     <div id="${_p.f.name("vue-root")}"></div>
                   </div>
                 `;
