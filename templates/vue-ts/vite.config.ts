@@ -44,7 +44,7 @@ export default defineConfig({
         },
 
     },
-    plugins: [dts(),vue()], // Add the plugin here
+    plugins: [vue(),dts(),], // Add the plugin here
 
 
     //set..
