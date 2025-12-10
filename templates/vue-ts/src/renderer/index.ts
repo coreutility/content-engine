@@ -22,8 +22,6 @@ const index = async (_p:_p_TYP) => {
             
 
 
-            
-
             //set..
             const _$u = {
                 /*value: (): string => {
