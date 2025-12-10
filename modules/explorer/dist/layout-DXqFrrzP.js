@@ -1,7 +1,7 @@
 const c = async (a) => ({
   set: async (e, t) => {
     console.log(`--renderer [${e.data.curr.type}]`);
-    const r = (e.data.curr.data.theme || "dark") === "dark", s = await (await (await import("./sidebar-DwHjt2P4.js")).default(a)).set(e, t), i = await (await (await import("./file-viewer-Bubfp-4w.js")).default(a)).set(e, t), l = await (await (await import("./status-bar-DUvAenAA.js")).default(a)).set(e, t);
+    const r = (e.data.curr.data.theme || "dark") === "dark", s = await (await (await import("./sidebar-DwHjt2P4.js")).default(a)).set(e, t), i = await (await (await import("./file-viewer-BAXOtdSN.js")).default(a)).set(e, t), l = await (await (await import("./status-bar-DUvAenAA.js")).default(a)).set(e, t);
     return {
       r: await (async () => `
                     <div id="${a.f.name("root")}" class="h-screen w-screen overflow-hidden flex flex-col 
@@ -56,7 +56,7 @@ const c = async (a) => ({
 
                             
                             <!-- File Viewer -->
-                            <div id="${a.f.name("file-viewer")}" class="flex-1 overflow-hidden">
+                            <div id="${a.f.name("file-viewer")}" class="flex-1 overflow-hidden" >
                                 ${i.r}
                             </div>
                         </div>

@@ -11,7 +11,7 @@ n(l);
 const s = async (o) => ({
   set: async (e, a) => {
     console.log(`--renderer [${e.data.curr.type}]`);
-    const t = await (await (await import("./layout-C4zJmW_P.js")).default(o)).set(e, a);
+    const t = await (await (await import("./layout-DXqFrrzP.js")).default(o)).set(e, a);
     return {
       r: `
                     <div id="${o.f.name("explorer-root")}">

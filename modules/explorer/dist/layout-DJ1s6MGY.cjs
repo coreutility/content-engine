@@ -1,4 +1,4 @@
-"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const s=async e=>({set:async(a,t)=>{console.log(`--renderer [${a.data.curr.type}]`);const r=(a.data.curr.data.theme||"dark")==="dark",i=await(await(await Promise.resolve().then(()=>require("./sidebar-IH229NRC.cjs"))).default(e)).set(a,t),l=await(await(await Promise.resolve().then(()=>require("./file-viewer-A1t7c8rs.cjs"))).default(e)).set(a,t),d=await(await(await Promise.resolve().then(()=>require("./status-bar-B3MIbeX8.cjs"))).default(e)).set(a,t);return{r:await(async()=>`
+"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const s=async e=>({set:async(a,t)=>{console.log(`--renderer [${a.data.curr.type}]`);const r=(a.data.curr.data.theme||"dark")==="dark",i=await(await(await Promise.resolve().then(()=>require("./sidebar-IH229NRC.cjs"))).default(e)).set(a,t),l=await(await(await Promise.resolve().then(()=>require("./file-viewer-kmAZyKLs.cjs"))).default(e)).set(a,t),d=await(await(await Promise.resolve().then(()=>require("./status-bar-B3MIbeX8.cjs"))).default(e)).set(a,t);return{r:await(async()=>`
                     <div id="${e.f.name("root")}" class="h-screen w-screen overflow-hidden flex flex-col 
                         ${r?"bg-gray-900 text-gray-100":"bg-gray-50 text-gray-900"}"
                         data-ce='[{"k":"t-light-class","v":"bg-gray-50 text-gray-900"},{"k":"t-dark-class","v":"bg-gray-900 text-gray-100"}]'>
@@ -51,7 +51,7 @@
 
                             
                             <!-- File Viewer -->
-                            <div id="${e.f.name("file-viewer")}" class="flex-1 overflow-hidden">
+                            <div id="${e.f.name("file-viewer")}" class="flex-1 overflow-hidden" >
                                 ${l.r}
                             </div>
                         </div>
