@@ -181,14 +181,15 @@ _css_server = _ce_renderer_rsp.style;
 
 //}
 //if (import.meta.client) {
+setTimeout(async() => {
 const _ce_hydrator_rsp =  await _ce_hydrator.set({
   data:_data
 });
 
 //set..
 _css_client = _ce_hydrator_rsp.style;
-//}
-
+//}  
+}, 200);
 
 
 

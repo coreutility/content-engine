@@ -31,12 +31,17 @@ const index = async (_p:_p_TYP) => {
             const _$r = {
                 r: (() => {
                 /*let _n = `
-                <div class="${_p.f.name(`text`)}" id="${_p.f.name(`text`)}"  >
+                <div class="${_p.f.name(`text`)}" id="${_p.f.name(`root`)}"  >
                   ${_$u.value()}
                 </div>
                 `;*/
                 let _n = html;
-                return _n;
+                return `
+                 <div>
+                    ${_n}       <!-- static renderer HTML -->
+                    <div id="${_p.f.name("vue-root")}"></div>
+                  </div>
+                `;
                 })(),
                 style: (()=>{
                 let _n = ``;
