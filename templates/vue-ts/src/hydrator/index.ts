@@ -46,12 +46,9 @@ const index = async (_p:_p_TYP) => {
                     }
                 }
             };
-            const mE = document.getElementById(_p.f.name(`root`));
-            //app.mount(mE!);
+            //const mE = document.getElementById(_p.f.name(`root`));
             const mountEl = document.getElementById(_p.f.name("vue-root"));
             app.mount(mountEl!);
-
-
             /*mE!.onclick = () => { console.log(`--root`);};
             (async(mE) => {
             //set..
