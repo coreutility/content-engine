@@ -11,28 +11,33 @@ const index = async (_p:_p_TYP) => {
             console.log(`--renderer [${_$p[`data`][`curr`].type}]`);
 
 
-            //test..
-            const props = {};
+            //set..
+            const props = {
+                _p:_p,
+                set:{
+                    _$p:_$p,
+                    _$cb:_$cb,
+                }
+            };
             const app = createSSRApp(Comp, props);
             const html = await renderToString(app);
-
-
-            console.log(html);
+            //console.log(html);
             
 
             //set..
             const _$u = {
-                value: (): string => {
+                /*value: (): string => {
                     return _$p[`data`][`curr`].data[`data`];
-                },
+                },*/
             };
             const _$r = {
                 r: (() => {
-                let _n = `
+                /*let _n = `
                 <div class="${_p.f.name(`text`)}" id="${_p.f.name(`text`)}"  >
                   ${_$u.value()}
                 </div>
-                `;
+                `;*/
+                let _n = html;
                 return _n;
                 })(),
                 style: (()=>{
