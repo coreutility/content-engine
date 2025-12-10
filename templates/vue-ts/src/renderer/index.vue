@@ -1,16 +1,15 @@
 <template>
   <div class="box">
-    <h2>{{ title }}</h2>
-    <p>Total items: {{ count }}</p>
+    <h2>{{ props._$p.data.curr.data }}</h2>
   </div>
 </template>
 
 <script lang="ts" setup>
-interface Props {
-  title: string;
-  count: number;
-}
+import type { _p_TYP, _$cb_TYP, _$p_TYP } from "../shared/types";
 
-const props = defineProps<Props>();
-const { title, count } = props;
+const props = defineProps<{
+    _p:_p_TYP,
+    _$p:_$p_TYP,
+    _$cb:_$cb_TYP,
+}>();
 </script>

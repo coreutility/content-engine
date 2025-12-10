@@ -10,14 +10,11 @@ const index = async (_p:_p_TYP) => {
         set: async (_$p:_$p_TYP,_$cb?:_$cb_TYP) => {  
             console.log(`--renderer [${_$p[`data`][`curr`].type}]`);
 
-
             //set..
             const props = {
                 _p:_p,
-                set:{
-                    _$p:_$p,
-                    _$cb:_$cb,
-                }
+                _$p:_$p,
+                _$cb:_$cb,
             };
             const app = createSSRApp(Comp, props);
             const html = await renderToString(app);
