@@ -1,6 +1,6 @@
 <template>
   <div class="box">
-    <h2>{{ props._$p.data.curr.data }}</h2>
+    <h2>{{ props._$p.data.curr.data.data }}</h2>
   </div>
 </template>
 

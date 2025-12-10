@@ -51,7 +51,7 @@ let _data = {
         "id": "3e1bc78c-104f-4f6f-aa87-ee295db8ad8c",
         "type": "text",
         "data": {
-          "data": "Hello world! </br> ",
+          "data": "Hello world! ",
         },
       }
 
