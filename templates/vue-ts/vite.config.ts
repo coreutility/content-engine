@@ -43,8 +43,19 @@ export default defineConfig({
             ],
         },
 
+        watch: {}, // Enable hot reload inside lib mode
+
     },
-    plugins: [vue(),dts(),], // Add the plugin here
+    plugins: [vue(),
+    dts(),], // Add the plugin here
+
+
+    optimizeDeps: {
+      include: ['vue'],
+    },
+    resolve: {
+      //extensions: ['.ts', '.js', '.json', '.vue'],
+    },
 
 
     //set..

@@ -1,6 +1,6 @@
 <template>
   <div class="box">
-    <p>{{ props._$p.data.curr.data.data }} </p>
+    <p>{{ props._$p.data.curr.data.data }} hjghjgk hkg gf</p>
   </div>
 </template>
 
