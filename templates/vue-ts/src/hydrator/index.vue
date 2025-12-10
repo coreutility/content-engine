@@ -8,6 +8,4 @@ const props = defineProps<{
     _$cb:_$cb_TYP,
 }>();
 
-console.log(`----`);
-
 </script>
