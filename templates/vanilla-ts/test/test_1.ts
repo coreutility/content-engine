@@ -1,5 +1,5 @@
 console.log(`test_1`);
-import { ce_renderer, ce_hydrator, ce_editor } from "content_engine_lib";
+import { ce_renderer, ce_hydrator, ce_editor } from "content-engine-lib";
 
 //set..
 (async() => {
