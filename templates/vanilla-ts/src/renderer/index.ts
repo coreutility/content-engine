@@ -1,7 +1,7 @@
 import type { _p_TYP, _$cb_TYP, _$p_TYP } from "../shared/types";
 import styleInject from "style-inject";
 import css from "../style.css?inline";
-import { foo } from "./src/foo";
+//import { foo } from "./src/foo";
 styleInject(css);
 
 const index = async (_p:_p_TYP) => {
