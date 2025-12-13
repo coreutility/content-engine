@@ -1,0 +1,23 @@
+{
+    "config": {
+        "lazy_lib": {
+            "renderer_src": "https://cdn.jsdelivr.net/gh/[username]/[repo_name]/modules/{*}/dist/renderer.es.js",
+            "hydrator_src": "https://cdn.jsdelivr.net/gh/[username]/[repo_name]/modules/{*}/dist/hydrator.es.js",
+            "editor_src": "https://cdn.jsdelivr.net/gh/[username]/[repo_name]/modules/{*}/dist/editor.es.js"
+        }
+    },
+    "data": {
+        "l": [
+            {
+                "id": "3e1bc78c-104f-4f6f-aa87-76a",
+                "type": "sample",
+                "slug": "sample",
+                "data": {
+                    "data": "",
+                    "theme": "light",
+                    "foo": ""
+                }
+            }
+        ]
+    }
+}
