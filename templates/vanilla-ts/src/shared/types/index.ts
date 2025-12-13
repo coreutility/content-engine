@@ -9,7 +9,7 @@ type _$p_TYP = {
         curr: {
             //set..
             "id": "",
-            "type": "text",
+            "type": "sample",
             "data": {
                 "data": string,
             },

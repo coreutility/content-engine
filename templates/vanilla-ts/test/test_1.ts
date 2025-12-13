@@ -49,7 +49,7 @@ let _data = {
       },*/
       {
         "id": "3e1bc78c-104f-4f6f-aa87-ee295db8ad8c",
-        "type": "text",
+        "type": "sample",
         "data": {
           "data": "Hello world! </br> ",
         },
@@ -69,7 +69,7 @@ const _ce_renderer = await ce_renderer({
     {
       renderer_src:`http://localhost:5173/src/renderer/index.ts`,
       hydrator_src:`http://localhost:5173/src/hydrator/index.ts`,
-      name:`text`,
+      name:`sample`,
     }
   ],
   /*lazy_lib: {
@@ -87,7 +87,7 @@ const _ce_hydrator = await ce_hydrator({
     {
       renderer_src:`http://localhost:5173/src/renderer/index.ts`,
       hydrator_src:`http://localhost:5173/src/hydrator/index.ts`,
-      name:`text`,
+      name:`sample`,
     }
   ],
   /*lazy_lib: {
