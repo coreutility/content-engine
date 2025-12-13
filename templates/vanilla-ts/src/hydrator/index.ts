@@ -29,9 +29,9 @@ const index = async (_p:_p_TYP) => {
                     }
                 }
             };
-            const mE = document.getElementById(_p.f.name(`text`));
+            const mE = document.getElementById(_p.f.name(`root`));
             /*mE!.onclick = () => {
-                alert(`--text`);
+                alert(`--root`);
             };*/
             (async(mE) => {
             //set..
