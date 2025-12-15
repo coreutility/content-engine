@@ -1,5 +1,10 @@
 import type { _p_TYP, _$cb_TYP, _$p_TYP } from "../shared/types";
 
+import styleInject from "style-inject";
+import css from "../style.css?inline";
+//import { foo } from "./src/foo";
+styleInject(css);
+
 //set..
 import { createSSRApp } from "vue";
 import { renderToString } from "@vue/server-renderer";

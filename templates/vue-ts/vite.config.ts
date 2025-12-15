@@ -4,11 +4,45 @@ import dts from 'vite-plugin-dts'; // Import the plugin
 import { resolve } from "path";
 import vue from "@vitejs/plugin-vue";
 
+import tailwindcss from '@tailwindcss/vite'
+import { viteStaticCopy } from 'vite-plugin-static-copy';
+import type { Plugin } from 'vite';
+import { promises as fs } from "fs";
+import path from "path";
+
+function MinifyJsonPlugin(): Plugin {
+    return {
+        name: "minify-json",
+        apply: "build",
+
+        async writeBundle(options) {
+            const outDir = options.dir!;
+
+            const files = await fs.readdir(outDir);
+
+            for (const f of files) {
+                if (!f.endsWith(".json")) continue;
+
+                const file = path.join(outDir, f);
+
+                try {
+                    const content = await fs.readFile(file, "utf8");
+                    const minified = JSON.stringify(JSON.parse(content));
+                    await fs.writeFile(file, minified, "utf8");
+                    console.log(`Minified: ${file}`);
+                } catch { }
+            }
+        }
+    };
+}
+
 const _d = {
     name:`sample`,
 };
 export default defineConfig({
     build: {
+        cssCodeSplit: false,  // <— Forces CSS to stay inside JS files
+        assetsInlineLimit: 0, // ensures CSS is imported as string
         lib: {
             //entry: resolve(__dirname, `src/index.ts`), //'src/main.ts',
             entry: {
@@ -47,7 +81,21 @@ export default defineConfig({
 
     },
     plugins: [vue(),
-    dts(),], // Add the plugin here
+      dts(),
+        tailwindcss(),
+    
+        viteStaticCopy({
+              targets: [
+                // Copy single file (exact output name)
+                {
+                  src: resolve(__dirname, 'src/data.json'),
+                  dest: '.',            // outputs to dist/data.json
+                },
+              ],
+            }),
+            MinifyJsonPlugin(),
+    
+        ], // Add the plugin here
 
 
     optimizeDeps: {

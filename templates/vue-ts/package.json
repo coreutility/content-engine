@@ -13,11 +13,16 @@
     "@vue/server-renderer": "^3.5.25",
     "typescript": "~5.9.3",
     "vite": "^7.1.7",
-    "vite-plugin-dts": "^4.5.4"
+    "vite-plugin-dts": "^4.5.4",
+    "@types/style-inject": "^0.3.5",
+    "style-inject": "^0.3.0",
+    "vite-plugin-static-copy": "^3.1.4",
+    "content-engine-lib": "^1.0.1"
   },
   "dependencies": {
-    "content-engine-lib": "^1.0.1",
-    "vue": "^3.5.25"
+    "vue": "^3.5.25",
+    "@tailwindcss/vite": "^4.1.17",
+    "tailwindcss": "^4.1.17"
   },
   "main": "./dist/index.umd.cjs",
   "module": "./dist/index.es.js",
