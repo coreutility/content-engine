@@ -1,5 +1,6 @@
 console.log(`test_1`);
 import { ce_renderer, ce_hydrator, ce_editor } from "content-engine-lib";
+const _ENV = import.meta.env.VITE_ENV;
 
 //set..
 (async() => {
@@ -59,48 +60,36 @@ let _data = {
 };
 
 //set..
-const _ce_renderer = await ce_renderer({
+const _cnf = {
   lib:[
     /*{
       renderer_src:`table`,
       hydrator_src:`table`,
       name:`table`,
     }*/
-    {
+    _ENV==`dev` ? {
       renderer_src:`http://localhost:5173/src/renderer/index.ts`,
       hydrator_src:`http://localhost:5173/src/hydrator/index.ts`,
+      editor_src:`http://localhost:5173/src/editor/index.ts`,
       name:`sample`,
+    } : {
+      name:`sample`,
+      renderer_src:`http://localhost:5173/dist/renderer.es.js`,
+      hydrator_src:`http://localhost:5173/dist/hydrator.es.js`,
+      editor_src:`http://localhost:5173/dist/editor.es.js`,
     }
   ],
   /*lazy_lib: {
     renderer_src: `http://localhost:5173/src/l/{*}/renderer/index.ts`,
     hydrator_src: `http://localhost:5173/src/l/{*}/hydrator/index.ts`,
+    editor_src: `http://localhost:5173/src/l/{*}/editor/index.ts`,
   }*/
-});
-const _ce_hydrator = await ce_hydrator({
-  lib:[
-    /*{
-      renderer_src:`table`,
-      hydrator_src:`table`,
-      name:`table`,
-    }*/
-    {
-      renderer_src:`http://localhost:5173/src/renderer/index.ts`,
-      hydrator_src:`http://localhost:5173/src/hydrator/index.ts`,
-      name:`sample`,
-    }
-  ],
-  /*lazy_lib: {
-    renderer_src: `http://localhost:5173/src/l/{*}/renderer/index.ts`,
-    hydrator_src: `http://localhost:5173/src/l/{*}/hydrator/index.ts`,
-  }*/
-});
-/*const _ce_editor = await ce_editor({
-  lazy_lib: {
-    renderer_src: `http://localhost:5173/src/l/{*}/renderer/index.ts`,
-    hydrator_src: `http://localhost:5173/src/l/{*}/hydrator/index.ts`,
-  }
-});*/
+};
+
+//set..
+const _ce_renderer = await ce_renderer(_cnf);
+const _ce_hydrator = await ce_hydrator(_cnf);
+/*const _ce_editor = await ce_editor(_cnf);*/
 
 
 
