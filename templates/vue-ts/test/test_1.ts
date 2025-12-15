@@ -22,6 +22,8 @@ let _data = {
 
     ]
 };
+console.log(import.meta.env.VITE_ENV);
+
 const _cnf = {
   lib:[
     {
