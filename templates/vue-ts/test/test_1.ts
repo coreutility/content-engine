@@ -1,6 +1,6 @@
 console.log(`test_1`);
 import { ce_renderer, ce_hydrator, ce_editor } from "content-engine-lib";
-
+const _ENV = import.meta.env.VITE_ENV;
 //set..
 (async() => {
 //set vars..
@@ -26,7 +26,7 @@ let _data = {
 
 const _cnf = {
   lib:[
-    import.meta.env.VITE_ENV==`dev` ? {
+      _ENV==`dev` ? {
       name:`sample`,
       renderer_src:`http://localhost:5173/src/renderer/index.ts`,
       hydrator_src:`http://localhost:5173/src/hydrator/index.ts`,
