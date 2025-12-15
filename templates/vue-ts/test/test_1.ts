@@ -26,13 +26,14 @@ const _cnf = {
   lib:[
     {
       name:`text`,
-      renderer_src:`http://localhost:5173/src/renderer/index.ts`,
+      //dev.. [src]
+      /*renderer_src:`http://localhost:5173/src/renderer/index.ts`,
       hydrator_src:`http://localhost:5173/src/hydrator/index.ts`,
-      editor_src:`http://localhost:5173/src/editor/index.ts`,
-      //test.. [dist]
-      /*renderer_src:`http://localhost:5173/dist/renderer.es.js`,
+      editor_src:`http://localhost:5173/src/editor/index.ts`,*/
+      //prod.. [dist]
+      renderer_src:`http://localhost:5173/dist/renderer.es.js`,
       hydrator_src:`http://localhost:5173/dist/hydrator.es.js`,
-      editor_src:`http://localhost:5173/dist/editor.es.js`,*/
+      editor_src:`http://localhost:5173/dist/editor.es.js`,
     }
   ],
   /*lazy_lib: {
