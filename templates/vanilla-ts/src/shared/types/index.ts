@@ -2,6 +2,8 @@ type _p_TYP = {
     f:{
         name:(v:string)=>string,
         get_lib:(v:{name:string,run_from:any})=> any,
+        set_theme:(v:{name:string,el_id:string})=> any,
+        path:(v:string)=>string,
     }
 };
 type _$p_TYP = {
