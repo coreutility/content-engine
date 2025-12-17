@@ -40,6 +40,10 @@ const _d = {
     name:`sample`,
 };
 export default defineConfig({
+    define: { //It will protect from err after build `process` is undefined!
+     'process.env.NODE_ENV': JSON.stringify('production'),
+     'process.env': {}
+    },
     build: {
         cssCodeSplit: false,  // <— Forces CSS to stay inside JS files
         assetsInlineLimit: 0, // ensures CSS is imported as string
@@ -72,8 +76,9 @@ export default defineConfig({
                 'content-engine-lib',
                 // Keep other external libraries here if needed, e.g., 'react', 'react-dom'
 
-                //set..
-                "vue", "@vue/server-renderer"
+                //set.. //Note: If un-commented then we need to externally provide vue-runtime. 
+                /*"vue", 
+                "@vue/server-renderer"*/
             ],
         },
 
