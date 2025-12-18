@@ -11,6 +11,8 @@ let _css_client = ``;
 //set..
 let _editor_html = ``;
 let _editor_css_client = ``;
+//set..
+let _head = ``;
 let _data = {
     l:  [
 
@@ -164,6 +166,7 @@ const _ce_renderer_rsp =  await _ce_renderer.set({
 //set..
 _html = _ce_renderer_rsp.r;
 _css_server = _ce_renderer_rsp.style;
+_head = _ce_renderer_rsp.head;
 
 
 
@@ -194,6 +197,16 @@ const mE_s = document.getElementById(_a) || (() => { let e = document.createElem
 const mE_log = document.getElementById(_b) || (() => { let e = document.createElement("div"); e.id = _b; mE_a!.appendChild(e); return e; })();
 //console.log(mE_log);
 const mE_preview = document.getElementById(_c) || (() => { let e = document.createElement("div"); e.id = _c; mE_a!.appendChild(e); return e; })();
+
+
+//set..
+(() => {
+const mE = document.createElement("div");
+mE.innerHTML = `${_head}`;
+for (const e of mE.querySelectorAll(`*`)) {
+  mE_h.appendChild(e);
+}
+})();
 
 
 //set..

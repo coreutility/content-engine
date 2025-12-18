@@ -22,6 +22,7 @@ const index = async (_p:_p_TYP) => {
                 `;
                 return _n;
                 })(),
+                head: ``,
                 style: (()=>{
                 let _n = ``;
                 _n = `
