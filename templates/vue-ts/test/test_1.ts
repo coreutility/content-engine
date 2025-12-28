@@ -1,5 +1,5 @@
 console.log(`test_1`);
-import { ce_renderer, ce_hydrator, ce_editor } from "content-engine-lib";
+import { ce_renderer, ce_hydrator, ce_editor, ce_listen, ce_call } from "content-engine-lib";
 const _ENV = `dev`; //import.meta.env.VITE_ENV;
 
 //set..
@@ -193,6 +193,25 @@ await _run();
 
 
  
+
+//test..
+setTimeout(async() => {
+ ce_listen("msg", async(_$) => {
+    console.log(`ce_listen`, _$);
+ });
+ await ce_call("msg",{
+  type:`on:change`,
+  _p:{},
+  _$p:{},
+  custom:{},
+  /*where:{
+    key:`type`,
+    value:`editor`
+  },*/
+ });
+}, 200);
+
+
 
  
 
