@@ -69,6 +69,7 @@ const _ce_renderer = await ce_renderer({
     {
       renderer_src:`http://localhost:5173/src/renderer/index.ts`,
       hydrator_src:`http://localhost:5173/src/hydrator/index.ts`,
+      editor_src:`http://localhost:5173/src/editor/index.ts`,
       name:`text`,
     }
   ],
@@ -87,6 +88,7 @@ const _ce_hydrator = await ce_hydrator({
     {
       renderer_src:`http://localhost:5173/src/renderer/index.ts`,
       hydrator_src:`http://localhost:5173/src/hydrator/index.ts`,
+      editor_src:`http://localhost:5173/src/editor/index.ts`,
       name:`text`,
     }
   ],
