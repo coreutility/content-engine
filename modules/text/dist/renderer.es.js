@@ -1,5 +1,5 @@
-const s = async (r) => ({
-  set: async (a, d) => {
+const c = async (r) => ({
+  set: async (a) => {
     console.log(`--renderer [${a.data.curr.type}]`), a.data.curr.data.e_tag = a.data.curr.data?.e_tag || "div";
     const e = {
       value: async () => {
@@ -29,6 +29,6 @@ const s = async (r) => ({
   }
 });
 export {
-  s as index,
-  s as renderer
+  c as index,
+  c as renderer
 };

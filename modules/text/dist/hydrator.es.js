@@ -1,22 +1,35 @@
-const d = async (r) => ({
-  set: async (t, n) => {
-    console.log(`--hydrator [${t.data.curr.type}]`);
-    const a = {
+const c = async (t) => ({
+  set: async (e) => {
+    console.log(`--hydrator [${e.data.curr.type}]`);
+    const r = {
       r: "",
       style: "",
       //set..
       evt: {
         change: () => {
-          n?.change({ _$p: t });
+          t.f.call("msg", {
+            type: "change",
+            _p: t,
+            _$p: e,
+            custom: {}
+          });
         }
       }
-    }, c = document.getElementById(r.f.name("text"));
-    return (async (e) => {
-      n?.add({ $d: t.data.curr.data, el: e });
-    })(c), a;
+    }, a = document.getElementById(t.f.name("text"));
+    return (async (n) => {
+      t.f.call("msg", {
+        type: "add",
+        _p: t,
+        _$p: e,
+        custom: {},
+        //set..
+        $d: e.data.curr.data,
+        el: n
+      });
+    })(a), r;
   }
 });
 export {
-  d as hydrator,
-  d as index
+  c as hydrator,
+  c as index
 };
