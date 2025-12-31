@@ -36,13 +36,14 @@ const index = async (_p:_p_TYP) => {
             (async(mE) => {
             //==test==//  [START]
             //1
-            _p.f.emitter.on("msg", async(_$)=>{
-                console.log(`_p.f.emitter.on`, _$);
+            _p.my[`emitter`] = _p.f.new_emitter();
+            _p.my[`emitter`].on("msg", async (_$: any) => {
+                console.log(`_p.my.emitter.on`, _$);
             });
-            await _p.f.emitter.emit("msg", {
-                type:`on:change`,
-                _p:_p,
-                _$p:_$p,
+            await _p.my[`emitter`].emit("msg", {
+                type: `on:change`,
+                _p: _p,
+                _$p: _$p,
             });
             //2
             _p.f.listen("msg", async(_$)=>{
