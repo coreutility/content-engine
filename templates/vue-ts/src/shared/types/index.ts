@@ -1,5 +1,5 @@
 type _$ = {
-    /**eg=> `on:change`, `on:add`  etc. */
+    /**eg=> `change`, `add`  etc. */
     type: string,
     /**pass existing `_p` variable. */
     _p: any,
@@ -7,6 +7,10 @@ type _$ = {
     _$p: any,
     /**can be used to pass custom data. */
     custom?: object,
+    /**can be used to pass eg=> `_$p[`data`].curr[`data`],`, `_$p[`data`].curr` */
+    $d?:any,
+    /**can be used to pass eg=> `HTMLElement` */
+    el?:any,
 };
 type Events = | "msg" ;
 type _p_TYP = {
@@ -38,8 +42,4 @@ type _$p_TYP = {
         }
     },
 };
-type _$cb_TYP = {
-    change: (_v:{_$p:_$p_TYP}) => any,
-    add: (_v:{/*_$p:_$p_TYP,*/$d:_$p_TYP[`data`][`curr`][`data`],el:HTMLElement}) => any,
-};
-export type {_p_TYP,_$p_TYP,_$cb_TYP};
+export type {_p_TYP,_$p_TYP};

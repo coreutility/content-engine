@@ -1,13 +1,12 @@
 //import { createObserver } from "../../../u/observe/index";
 import { createApp } from "vue";
-import type { _p_TYP, _$cb_TYP, _$p_TYP } from "../shared/types";
+import type { _p_TYP, _$p_TYP } from "../shared/types";
 //set..
 import Comp from "./index.vue";
 
 const index = async (_p:_p_TYP) => {
     return {
-        set: async (_$p:_$p_TYP,_$cb?:_$cb_TYP) => {
-            /*const _$p = createObserver(_$p_, (path, key, oldVal, newVal) => {_$cb?.change({_$p:_$p_})});*/ //not supported in some browsers..
+        set: async (_$p:_$p_TYP,) => {
             console.log(`--hydrator [${_$p[`data`][`curr`].type}]`);
 
 
@@ -15,7 +14,6 @@ const index = async (_p:_p_TYP) => {
             const props = {
                 _p:_p,
                 _$p:_$p,
-                _$cb:_$cb,
             };
             const app = createApp(Comp, props);
             //console.log(app);
@@ -42,7 +40,13 @@ const index = async (_p:_p_TYP) => {
                 //set..
                 evt: {
                     change: () => {
-                        _$cb?.change({_$p:_$p});
+                        _p.f.call("msg",{
+                            type:`change`,
+                            _p:_p,
+                            _$p:_$p,
+                            custom:{},
+                        });
+
                     }
                 }
             };
@@ -52,7 +56,16 @@ const index = async (_p:_p_TYP) => {
             /*mE!.onclick = () => { console.log(`--root`);};
             (async(mE) => {
             //set..
-            _$cb?.add({$d:_$p[`data`].curr[`data`],el:mE!});
+            _p.f.call("msg", {
+                    type: `add`,
+                    _p: _p,
+                    _$p: _$p,
+                    custom: {},
+                    //set..
+                    $d: _$p[`data`].curr[`data`],
+                    el: mE!
+
+            });
             })(mE);*/
             return _$r;
         },

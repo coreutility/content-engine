@@ -1,4 +1,4 @@
-import type { _p_TYP, _$cb_TYP, _$p_TYP } from "../shared/types";
+import type { _p_TYP, _$p_TYP } from "../shared/types";
 
 import styleInject from "style-inject";
 import css from "../style.css?inline";
@@ -12,14 +12,13 @@ import Comp from "./index.vue";
 
 const index = async (_p:_p_TYP) => {
     return {
-        set: async (_$p:_$p_TYP,_$cb?:_$cb_TYP) => {  
+        set: async (_$p:_$p_TYP,) => {  
             console.log(`--renderer [${_$p[`data`][`curr`].type}]`);
 
             //set..
             const props = {
                 _p:_p,
                 _$p:_$p,
-                _$cb:_$cb,
             };
             const app = createSSRApp(Comp, props);
             const html = await renderToString(app);
