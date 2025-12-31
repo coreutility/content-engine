@@ -12,11 +12,11 @@ const p = async () => ({
 }), v = async (e) => {
   const a = await p();
   return {
-    set: async (d) => {
+    set: async (s) => {
       const i = {
         r: ""
         //style: ``,
-      }, s = d.data.curr || {
+      }, d = s.data.curr || {
         id: h().set(),
         type: "text",
         data: {
@@ -26,28 +26,28 @@ const p = async () => ({
       }, x = e.f.new_emitter(), m = await f({
         f: {
           ...e.f,
-          name: (n) => a.f.name({ id: s.id, name: n })
+          name: (n) => a.f.name({ id: d.id, name: n })
         }
       }), l = await y({
         my: {},
         f: {
           ...e.f,
-          name: (n) => a.f.name({ id: s.id, name: n }),
+          name: (n) => a.f.name({ id: d.id, name: n }),
           //overwrite..
           call: x.emit
           //listen:listen_emitter.on,
         }
       }), o = await m.set({
         data: {
-          curr: s
+          curr: d
         }
       });
       return setTimeout(async () => {
         (async () => x.on("msg", async (t) => {
-          if (console.log("msg", t), t.type == "change") {
+          if (t.type == "add") {
             let r = t, c = r.el;
             c?.setAttribute("contenteditable", "true"), c?.classList.add("block-content"), c?.addEventListener("click", () => {
-            }), c?.addEventListener("input", function(g) {
+            }), c?.addEventListener("input", function($) {
               const u = c.innerHTML;
               r.$d.data = u, n.evt.change();
             });
@@ -62,7 +62,7 @@ const p = async () => ({
         const n = await l.set(
           {
             data: {
-              curr: s
+              curr: d
             }
           }
           /*{
