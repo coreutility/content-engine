@@ -1,5 +1,5 @@
 console.log(`test_1`);
-import { ce_renderer, ce_hydrator, ce_editor } from "content-engine-lib";
+import { ce_renderer, ce_hydrator, ce_editor, ce_listen, ce_call } from "content-engine-lib";
 
 //set..
 (async() => {
@@ -110,24 +110,25 @@ const _ce_hydrator = await ce_hydrator({
 /*
 //====Editor====//  [START]
 //if (import.meta.client) {
-  const _ce_editor_rsp =  await _ce_editor.set({
-    data:{
-      l:[]
-    }
-  },{
-    change: async (_v:any) => {
-      console.log(`--ce:editor [change] `);
-      //console.log(_v._$p.data[`curr`]);
+  ce_listen("msg", async(_$)=>{
+    //console.log(`ce_listen`, _$);
+    if (_$.type==`change` && _$._$p.data.curr[`type`]==`editor`) {
+      console.log(`--ce:editor [change] `); //console.log(_v._$p.data[`curr`]);
 
       //test..
+      let _v = _$;
       _data.l = _v._$p.data[`curr`].data.l;
       console.log(_data.l);
       //set..
       await _run();
-
       
-    },
+    }
   });
+  const _ce_editor_rsp =  await _ce_editor.set({
+    data:{
+      l:[]
+    }
+  },);
 
   //set..
   _editor_html = _ce_editor_rsp.r;
