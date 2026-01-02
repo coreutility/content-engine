@@ -1,233 +1,269 @@
-const j = async () => ({
-  set: async (M) => ({
-    data: {
-      l: [
-        {
-          type: "text",
-          title: "Text",
-          desc: "Just start writing with plain text",
-          icon: "T"
-        },
-        {
-          type: "table",
-          title: "Table",
-          desc: "Just start with table",
-          icon: "[]"
-        },
-        //set..
-        {
-          type: "heading_1",
-          title: "Heading 1",
-          desc: "Large section heading",
-          icon: "H1"
-        },
-        {
-          type: "heading_2",
-          title: "Heading 2",
-          desc: "Medium section heading",
-          icon: "H2"
-        },
-        {
-          type: "heading_3",
-          title: "Heading 3",
-          desc: "Small section heading",
-          icon: "H3"
-        },
-        {
-          type: "image",
-          title: "Image",
-          desc: "Upload or embed an image",
-          icon: "🖼️"
-        },
-        {
-          type: "bulleted_list",
-          title: "Bulleted List",
-          desc: "Create a simple bulleted list",
-          icon: "•"
-        },
-        {
-          type: "numbered_list",
-          title: "Numbered List",
-          desc: "Create a list with numbering",
-          icon: "1."
-        },
-        {
-          type: "toggle_list",
-          title: "Toggle List",
-          desc: "Create a toggleable list",
-          icon: "▸"
-        },
-        {
-          type: "quote",
-          title: "Quote",
-          desc: "Capture a quote",
-          icon: '"'
-        },
-        {
-          type: "code",
-          title: "Code",
-          desc: "Capture a code snippet",
-          icon: "{ }"
-        },
-        {
-          type: "divider",
-          title: "Divider",
-          desc: "Visual divider",
-          icon: "—"
-        }
-      ]
+const Z = async () => ({
+  set: async (b) => {
+    const w = {
+      data: {
+        l: []
+        /*[
+            {
+                "name": "text",
+                "title": "Text",
+                "description": "Just start writing with plain text",
+                "icon": "T",
+            },
+            {
+                "name": "table",
+                "title": "Table",
+                "description": "Just start with table",
+                "icon": "[]",
+            },
+            //set..
+            {
+                "name": "heading_1",
+                "title": "Heading 1",
+                "description": "Large section heading",
+                "icon": "H1",
+            },
+            {
+                "name": "heading_2",
+                "title": "Heading 2",
+                "description": "Medium section heading",
+                "icon": "H2",
+            },
+            {
+                "name": "heading_3",
+                "title": "Heading 3",
+                "description": "Small section heading",
+                "icon": "H3",
+            },
+            {
+                "name": "image",
+                "title": "Image",
+                "description": "Upload or embed an image",
+                "icon": "🖼️",
+            },
+            {
+                "name": "bulleted_list",
+                "title": "Bulleted List",
+                "description": "Create a simple bulleted list",
+                "icon": "•",
+            },
+            {
+                "name": "numbered_list",
+                "title": "Numbered List",
+                "description": "Create a list with numbering",
+                "icon": "1.",
+            },
+            {
+                "name": "toggle_list",
+                "title": "Toggle List",
+                "description": "Create a toggleable list",
+                "icon": "▸",
+            },
+            {
+                "name": "quote",
+                "title": "Quote",
+                "description": "Capture a quote",
+                "icon": "\"",
+            },
+            {
+                "name": "code",
+                "title": "Code",
+                "description": "Capture a code snippet",
+                "icon": "{ }",
+            },
+            {
+                "name": "divider",
+                "title": "Divider",
+                "description": "Visual divider",
+                "icon": "—",
+            },
+        ]*/
+      }
+    }, a = "https://cdn.jsdelivr.net/gh/coreutility/content-engine/modules-list.json";
+    try {
+      const c = await (await fetch(a)).json();
+      w.data.l = c;
+    } catch {
+      console.error(`Err: Unable to load modules-list from [url=${a}]`);
     }
-  })
-}), ee = async (M) => ({
-  set: async (C, $) => {
-    console.log(`--hydrator [${C.data.curr.type}]`);
-    const r = {
+    return w;
+  }
+}), nt = async (b) => ({
+  set: async (w) => {
+    console.log(`--hydrator [${w.data.curr.type}]`);
+    const a = {
       data: {
         l: [],
-        get_all: () => JSON.parse(JSON.stringify(r.data.l)),
+        get_all: () => JSON.parse(JSON.stringify(a.data.l)),
         sync: () => {
-          const c = r.data.get_all();
-          C.data.curr.data = {
+          const c = a.data.get_all();
+          w.data.curr.data = {
             l: c
-          }, $.change({ _$p: C });
+          }, b.f.call("msg", {
+            type: "change",
+            _p: b,
+            _$p: w,
+            custom: {}
+          });
         },
         upsert: (c) => {
-          const a = JSON.parse(JSON.stringify(c.val._$p.data.curr)), d = r.data.l.findIndex((g) => g.id == a.id);
-          d > -1 ? r.data.l[d] = a : r.data.l.push(a), r.data.sync();
+          const r = JSON.parse(JSON.stringify(c.val._$p.data.curr)), u = a.data.l.findIndex((y) => y.id == r.id);
+          u > -1 ? a.data.l[u] = r : a.data.l.push(r), a.data.sync();
         },
         remove: (c) => {
-          const a = JSON.parse(JSON.stringify(c.val._$p.data.curr)), d = r.data.l.findIndex((g) => g.id == a.id);
-          d > -1 && r.data.l.splice(d, 1), r.data.sync();
+          const r = JSON.parse(JSON.stringify(c.val._$p.data.curr)), u = a.data.l.findIndex((y) => y.id == r.id);
+          u > -1 && a.data.l.splice(u, 1), a.data.sync();
         },
         change_index: (c) => {
-          const a = JSON.parse(JSON.stringify(c.val._$p.data.curr)), { id: d } = a, g = c.newIdx, L = r.data.l.findIndex((y) => y.id == d);
-          if (L > -1 && g >= 0 && g < r.data.l.length) {
-            const [y] = r.data.l.splice(L, 1);
-            r.data.l.splice(g, 0, y);
+          const r = JSON.parse(JSON.stringify(c.val._$p.data.curr)), { id: u } = r, y = c.newIdx, E = a.data.l.findIndex((g) => g.id == u);
+          if (E > -1 && y >= 0 && y < a.data.l.length) {
+            const [g] = a.data.l.splice(E, 1);
+            a.data.l.splice(y, 0, g);
           }
-          r.data.sync();
+          a.data.sync();
         }
       }
-    }, N = {
+    }, $ = {
       r: "",
       style: ""
     };
     return (async () => {
-      const c = document.getElementById("editor"), a = document.getElementById("emptyState"), d = document.getElementById("commandMenu"), g = document.getElementById("commandSearch"), L = document.getElementById("commandOptions"), y = document.getElementById("blockMenu");
+      const c = document.getElementById("editor"), r = document.getElementById("emptyState"), u = document.getElementById("commandMenu"), y = document.getElementById("commandSearch"), E = document.getElementById("commandOptions"), g = document.getElementById("blockMenu");
       await (async () => {
-        const e = await (await j()).set({});
-        let t = "";
-        for (const n of e.data.l)
-          t += `
-                    <div class="command-option" data-type="${n.type}">
+        const t = await (await Z()).set({});
+        let e = "";
+        for (const n of t.data.l)
+          e += `
+                    <div class="command-option" data-type="${n.name}">
                         <div class="command-icon">${n.icon}</div>
                         <div class="command-label">
                             <div>${n.title}</div>
-                            <div class="command-description">${n.desc}</div>
+                            <div class="command-description">${n.description}</div>
                         </div>
                     </div>
                     `;
-        L.innerHTML = t;
+        E.innerHTML = e;
       })();
-      const k = L.querySelectorAll(".command-option");
-      let o = null, E = !1, S = !1, f = 0, _ = null, b = null, B = !1, T = null;
-      w("text"), document.addEventListener("keydown", function(e) {
-        e.key === "/" && !E && !S ? (q("slash"), e.preventDefault()) : e.key === "Escape" ? (A(), I()) : E ? J(e) : e.key === "Enter" && !e.shiftKey ? K(e) : e.key === "Backspace" && o ? U(e) : e.key === "ArrowUp" && o ? V(e) : e.key === "ArrowDown" && o ? W(e) : e.key === "Tab" && o && P(e);
-      }), g.addEventListener("input", function() {
-        H(this.value);
-      }), document.addEventListener("click", function(e) {
-        !d.contains(e.target) && E && A(), !y.contains(e.target) && S && I();
-      }), k.forEach((e) => {
-        e.addEventListener("click", function() {
-          const t = this.getAttribute("data-type");
-          O(t), A();
+      const S = E.querySelectorAll(".command-option");
+      let i = null, x = !1, C = !1, f = 0, B = null, k = null, T = !1, A = null;
+      L("text"), document.addEventListener("keydown", function(t) {
+        t.key === "/" && !x && !C ? (D("slash"), t.preventDefault()) : t.key === "Escape" ? (q(), I()) : x ? J(t) : t.key === "Enter" && !t.shiftKey ? K(t) : t.key === "Backspace" && i ? U(t) : t.key === "ArrowUp" && i ? W(t) : t.key === "ArrowDown" && i ? X(t) : t.key === "Tab" && i && P(t);
+      }), y.addEventListener("input", function() {
+        O(this.value);
+      }), document.addEventListener("click", function(t) {
+        !u.contains(t.target) && x && q(), !g.contains(t.target) && C && I();
+      }), S.forEach((t) => {
+        t.addEventListener("click", function() {
+          const e = this.getAttribute("data-type");
+          N(e), q();
         });
       });
-      async function w(e, t = "", n = null) {
-        v(), a.classList.contains("visible") && a.classList.remove("visible");
-        const i = document.createElement("div");
-        i.className = `block ${e}`, i.draggable = !0;
+      async function L(t, e = "", n = null) {
+        v(), r.classList.contains("visible") && r.classList.remove("visible");
+        const o = document.createElement("div");
+        o.className = `block ${t}`, o.draggable = !0;
         const s = document.createElement("div");
         s.className = "block-controls";
         const p = document.createElement("div");
-        p.className = "block-control block-handle", p.innerHTML = "⋮⋮", p.addEventListener("click", function(u) {
-          u.stopPropagation(), Y(i);
+        p.className = "block-control block-handle", p.innerHTML = "⋮⋮", p.addEventListener("click", function(d) {
+          d.stopPropagation(), H(o);
         });
         const h = document.createElement("div");
-        h.className = "block-control block-plus", h.innerHTML = "+", h.addEventListener("click", function(u) {
-          u.stopPropagation(), q("plus", i);
-        }), s.appendChild(p), s.appendChild(h), i.appendChild(s);
+        h.className = "block-control block-plus", h.innerHTML = "+", h.addEventListener("click", function(d) {
+          d.stopPropagation(), D("plus", o);
+        }), s.appendChild(p), s.appendChild(h), o.appendChild(s);
         const l = document.createElement("div");
-        l.className = "block-content", l.setAttribute("data-placeholder", "Type '/' for commands..."), t && (l.innerHTML = t);
-        const Q = await (await (await (await M.f.get_lib({ name: `${e}`, run_from: "editor" })).lib).editor(M)).set({ data: {} }, {
-          change: (u) => {
-            r.data.upsert({
-              val: u
-            });
+        l.className = "block-content", l.setAttribute("data-placeholder", "Type '/' for commands..."), e && (l.innerHTML = e);
+        const F = await (await b.f.get_lib({ name: `${t}`, run_from: "editor" })).lib, R = b.f.new_emitter();
+        let z = {
+          my: {},
+          f: {
+            ...b.f,
+            //overwrite..
+            call: R.emit
+            //listen:listen_emitter.on,
           }
-        });
-        if (l.innerHTML = `${Q.r}`, i.appendChild(l), R(i), e !== "divider" && e !== "image") {
-          const u = e === "toggle-list" ? l.querySelector(".toggle-summary") : l;
-          u.addEventListener("focus", function() {
-            m(i);
-          }), u.addEventListener("input", function() {
+        }, G = { data: {} };
+        (async () => R.on("msg", async (d) => {
+          d.type == "change" && a.data.upsert({
+            val: d
+          });
+        }))();
+        const Q = await (await F.editor(z)).set(
+          G
+          /*{
+              change: (_v:any) => {
+                  //console.log(`--change`);
+                  //console.log(_v);
+                  //set..
+                  _$u.data.upsert({
+                      val:_v,
+                  });
+              }
+          }*/
+        );
+        if (l.innerHTML = `${Q.r}`, o.appendChild(l), Y(o), t !== "divider" && t !== "image") {
+          const d = t === "toggle-list" ? l.querySelector(".toggle-summary") : l;
+          d.addEventListener("focus", function() {
+            m(o);
+          }), d.addEventListener("input", function() {
             v();
-          }), u.addEventListener("keydown", function(x) {
-            x.key === "/" && (q("slash"), x.preventDefault());
+          }), d.addEventListener("keydown", function(_) {
+            _.key === "/" && (D("slash"), _.preventDefault());
           });
         }
-        if (i.addEventListener("click", function(u) {
-          if (!u.target.closest(".block-controls")) {
-            m(i);
-            const x = e === "toggle-list" ? l.querySelector(".toggle-summary") : l;
-            x && x.focus();
+        if (o.addEventListener("click", function(d) {
+          if (!d.target.closest(".block-controls")) {
+            m(o);
+            const _ = t === "toggle-list" ? l.querySelector(".toggle-summary") : l;
+            _ && _.focus();
           }
-        }), n ? c?.insertBefore(i, n.nextSibling) : c?.appendChild(i), i.style.opacity = "0", i.style.transform = "translateY(10px)", setTimeout(() => {
-          i.style.transition = "all 0.2s ease", i.style.opacity = "1", i.style.transform = "translateY(0)";
-        }, 10), e !== "divider" && e !== "image") {
-          const u = e === "toggle-list" ? l.querySelector(".toggle-summary") : l;
-          u && !n && setTimeout(() => u.focus(), 100);
+        }), n ? c?.insertBefore(o, n.nextSibling) : c?.appendChild(o), o.style.opacity = "0", o.style.transform = "translateY(10px)", setTimeout(() => {
+          o.style.transition = "all 0.2s ease", o.style.opacity = "1", o.style.transform = "translateY(0)";
+        }, 10), t !== "divider" && t !== "image") {
+          const d = t === "toggle-list" ? l.querySelector(".toggle-summary") : l;
+          d && !n && setTimeout(() => d.focus(), 100);
         }
-        return n || m(i), v(), i;
+        return n || m(o), v(), o;
       }
       function v() {
-        const e = c.querySelectorAll(".block"), t = e.length > 0, n = Array.from(e).some((i) => {
-          const s = i.querySelector('[contenteditable="true"]');
+        const t = c.querySelectorAll(".block"), e = t.length > 0, n = Array.from(t).some((o) => {
+          const s = o.querySelector('[contenteditable="true"]');
           return s && s.textContent.trim() !== "";
         });
-        !t || !n ? (a.classList.add("visible"), o = null) : a.classList.remove("visible");
+        !e || !n ? (r.classList.add("visible"), i = null) : r.classList.remove("visible");
       }
-      function R(e) {
-        e.addEventListener("dragstart", function(t) {
-          b = this, B = !0, this.classList.add("dragging"), t.dataTransfer.effectAllowed = "move", t.dataTransfer.setData("text/html", this.innerHTML);
+      function Y(t) {
+        t.addEventListener("dragstart", function(e) {
+          k = this, T = !0, this.classList.add("dragging"), e.dataTransfer.effectAllowed = "move", e.dataTransfer.setData("text/html", this.innerHTML);
           const n = this.cloneNode(!0);
-          n.style.width = this.offsetWidth + "px", n.style.opacity = "0.8", document.body.appendChild(n), t.dataTransfer.setDragImage(n, 20, 10), setTimeout(() => document.body.removeChild(n), 0);
-        }), e.addEventListener("dragend", function() {
-          B = !1, this.classList.remove("dragging"), document.querySelectorAll(".block").forEach((t) => {
-            t.classList.remove("drag-over");
+          n.style.width = this.offsetWidth + "px", n.style.opacity = "0.8", document.body.appendChild(n), e.dataTransfer.setDragImage(n, 20, 10), setTimeout(() => document.body.removeChild(n), 0);
+        }), t.addEventListener("dragend", function() {
+          T = !1, this.classList.remove("dragging"), document.querySelectorAll(".block").forEach((e) => {
+            e.classList.remove("drag-over");
           }), v();
-        }), e.addEventListener("dragover", function(t) {
-          B && b !== this && (t.preventDefault(), this.classList.add("drag-over"));
-        }), e.addEventListener("dragenter", function(t) {
-          B && b !== this && t.preventDefault();
-        }), e.addEventListener("dragleave", function() {
+        }), t.addEventListener("dragover", function(e) {
+          T && k !== this && (e.preventDefault(), this.classList.add("drag-over"));
+        }), t.addEventListener("dragenter", function(e) {
+          T && k !== this && e.preventDefault();
+        }), t.addEventListener("dragleave", function() {
           this.classList.remove("drag-over");
-        }), e.addEventListener("drop", function(t) {
-          t.preventDefault(), b !== this && (this.classList.remove("drag-over"), c.insertBefore(b, this), m(b), v());
+        }), t.addEventListener("drop", function(e) {
+          e.preventDefault(), k !== this && (this.classList.remove("drag-over"), c.insertBefore(k, this), m(k), v());
         });
       }
-      function m(e) {
-        o && o.classList.remove("focused"), o = e, e && e.classList.add("focused");
+      function m(t) {
+        i && i.classList.remove("focused"), i = t, t && t.classList.add("focused");
       }
-      function q(e, t = null) {
-        if (e === "slash" && a?.classList.contains("visible"))
+      function D(t, e = null) {
+        if (t === "slash" && r?.classList.contains("visible"))
           return;
-        _ = e, T = t;
+        B = t, A = e;
         let n;
-        if (e === "slash") {
-          if (n = X(), n.width === 0 && n.height === 0)
-            if (o) {
-              const l = o.getBoundingClientRect();
+        if (t === "slash") {
+          if (n = j(), n.width === 0 && n.height === 0)
+            if (i) {
+              const l = i.getBoundingClientRect();
               n = {
                 top: l.top + l.height,
                 left: l.left,
@@ -235,7 +271,7 @@ const j = async () => ({
                 height: 0
               };
             } else {
-              const l = a.getBoundingClientRect();
+              const l = r.getBoundingClientRect();
               n = {
                 top: l.top + l.height,
                 left: l.left,
@@ -244,170 +280,170 @@ const j = async () => ({
               };
             }
         } else
-          n = t.querySelector(".block-plus").getBoundingClientRect();
-        const i = d.getBoundingClientRect(), s = window.innerHeight;
+          n = e.querySelector(".block-plus").getBoundingClientRect();
+        const o = u.getBoundingClientRect(), s = window.innerHeight;
         let p = n.top + window.scrollY + 10, h = n.left + window.scrollX;
-        p + i.height > s + window.scrollY && (p = n.top + window.scrollY - i.height - 10), h + i.width > window.innerWidth + window.scrollX && (h = window.innerWidth + window.scrollX - i.width - 20), d.style.top = `${p}px`, d.style.left = `${h}px`, d.classList.add("visible"), E = !0, g.value = "", H(""), f = 0, D(), setTimeout(() => g.focus(), 50);
+        p + o.height > s + window.scrollY && (p = n.top + window.scrollY - o.height - 10), h + o.width > window.innerWidth + window.scrollX && (h = window.innerWidth + window.scrollX - o.width - 20), u.style.top = `${p}px`, u.style.left = `${h}px`, u.classList.add("visible"), x = !0, y.value = "", O(""), f = 0, M(), setTimeout(() => y.focus(), 50);
       }
-      function A() {
-        d.classList.remove("visible"), E = !1, _ = null, T = null;
+      function q() {
+        u.classList.remove("visible"), x = !1, B = null, A = null;
       }
-      function Y(e) {
-        const t = e.getBoundingClientRect(), n = y.getBoundingClientRect(), i = window.innerHeight;
-        let s = t.top + window.scrollY + 30, p = t.left + window.scrollX;
-        s + n.height > i + window.scrollY && (s = t.top + window.scrollY - n.height - 10), y.style.top = `${s}px`, y.style.left = `${p}px`, y.classList.add("visible"), S = !0, m(e);
+      function H(t) {
+        const e = t.getBoundingClientRect(), n = g.getBoundingClientRect(), o = window.innerHeight;
+        let s = e.top + window.scrollY + 30, p = e.left + window.scrollX;
+        s + n.height > o + window.scrollY && (s = e.top + window.scrollY - n.height - 10), g.style.top = `${s}px`, g.style.left = `${p}px`, g.classList.add("visible"), C = !0, m(t);
       }
       function I() {
-        y.classList.remove("visible"), S = !1;
+        g.classList.remove("visible"), C = !1;
       }
-      function H(e) {
-        const t = Array.from(k);
+      function O(t) {
+        const e = Array.from(S);
         let n = 0;
-        t.forEach((i, s) => {
-          const p = i.querySelector(".command-label div:first-child").textContent.toLowerCase(), h = i.querySelector(".command-description").textContent.toLowerCase(), l = e.toLowerCase();
-          p.includes(l) || h.includes(l) || e === "" ? (i.style.display = "flex", n++, n === 1 && (f = s)) : i.style.display = "none";
-        }), D();
+        e.forEach((o, s) => {
+          const p = o.querySelector(".command-label div:first-child").textContent.toLowerCase(), h = o.querySelector(".command-description").textContent.toLowerCase(), l = t.toLowerCase();
+          p.includes(l) || h.includes(l) || t === "" ? (o.style.display = "flex", n++, n === 1 && (f = s)) : o.style.display = "none";
+        }), M();
       }
-      function J(e) {
-        const t = Array.from(k).filter(
+      function J(t) {
+        const e = Array.from(S).filter(
           (n) => n.style.display !== "none"
         );
-        switch (e.key) {
+        switch (t.key) {
           case "ArrowUp":
-            f = f > 0 ? f - 1 : t.length - 1, D(), e.preventDefault();
+            f = f > 0 ? f - 1 : e.length - 1, M(), t.preventDefault();
             break;
           case "ArrowDown":
-            f = f < t.length - 1 ? f + 1 : 0, D(), e.preventDefault();
+            f = f < e.length - 1 ? f + 1 : 0, M(), t.preventDefault();
             break;
           case "Enter":
-            if (t[f]) {
-              const n = t[f].getAttribute("data-type");
-              O(n), A();
+            if (e[f]) {
+              const n = e[f].getAttribute("data-type");
+              N(n), q();
             }
-            e.preventDefault();
+            t.preventDefault();
             break;
         }
       }
-      function D() {
-        const e = Array.from(k).filter(
-          (t) => t.style.display !== "none"
+      function M() {
+        const t = Array.from(S).filter(
+          (e) => e.style.display !== "none"
         );
-        k.forEach((t) => {
-          t.classList.remove("selected");
-        }), e[f] && (e[f].classList.add("selected"), e[f].scrollIntoView({
+        S.forEach((e) => {
+          e.classList.remove("selected");
+        }), t[f] && (t[f].classList.add("selected"), t[f].scrollIntoView({
           block: "nearest",
           behavior: "smooth"
         }));
       }
-      async function O(e) {
-        if (_ === "slash") {
-          const t = o.querySelector('[contenteditable="true"]')?.textContent.replace("/", "") || "", n = await w(e, t);
-          o.style.opacity = "0", o.style.transform = "translateY(-10px)", setTimeout(() => {
-            o.remove(), v();
+      async function N(t) {
+        if (B === "slash") {
+          const e = i.querySelector('[contenteditable="true"]')?.textContent.replace("/", "") || "", n = await L(t, e);
+          i.style.opacity = "0", i.style.transform = "translateY(-10px)", setTimeout(() => {
+            i.remove(), v();
           }, 150), m(n), setTimeout(() => {
-            const i = n.querySelector('[contenteditable="true"]');
-            i && i.focus();
+            const o = n.querySelector('[contenteditable="true"]');
+            o && o.focus();
           }, 160);
-        } else if (_ === "plus" && T) {
-          const t = await w(e, "", T);
-          m(t), setTimeout(() => {
-            const n = t.querySelector('[contenteditable="true"]');
+        } else if (B === "plus" && A) {
+          const e = await L(t, "", A);
+          m(e), setTimeout(() => {
+            const n = e.querySelector('[contenteditable="true"]');
             n && n.focus();
           }, 100);
         }
       }
-      async function K(e) {
-        if (!o) return;
-        e.preventDefault();
-        const t = Array.from(o.classList).find((s) => s.startsWith("heading-") || s === "text" || s === "bullet-list" || s === "numbered-list" || s === "quote" || s === "code");
+      async function K(t) {
+        if (!i) return;
+        t.preventDefault();
+        const e = Array.from(i.classList).find((s) => s.startsWith("heading-") || s === "text" || s === "bullet-list" || s === "numbered-list" || s === "quote" || s === "code");
         let n = "text";
-        (t === "bullet-list" || t === "numbered-list") && (n = t);
-        const i = await w(n, "", o);
-        m(i);
+        (e === "bullet-list" || e === "numbered-list") && (n = e);
+        const o = await L(n, "", i);
+        m(o);
       }
-      function P(e) {
-        o && e.preventDefault();
+      function P(t) {
+        i && t.preventDefault();
       }
-      function U(e) {
-        if (!o) return;
-        const t = o.querySelector('[contenteditable="true"]');
-        if (t && t.textContent === "" && c.querySelectorAll(".block").length > 1) {
-          e.preventDefault();
-          const n = o.previousElementSibling;
-          o.style.opacity = "0", o.style.transform = "translateY(-10px)", setTimeout(() => {
-            if (o.remove(), n && n.classList.contains("block")) {
+      function U(t) {
+        if (!i) return;
+        const e = i.querySelector('[contenteditable="true"]');
+        if (e && e.textContent === "" && c.querySelectorAll(".block").length > 1) {
+          t.preventDefault();
+          const n = i.previousElementSibling;
+          i.style.opacity = "0", i.style.transform = "translateY(-10px)", setTimeout(() => {
+            if (i.remove(), n && n.classList.contains("block")) {
               m(n);
-              const i = n.querySelector('[contenteditable="true"]');
-              i && i.focus();
+              const o = n.querySelector('[contenteditable="true"]');
+              o && o.focus();
             }
             v();
           }, 150);
-        } else t && t.textContent === "" && c.querySelectorAll(".block").length === 1 && (e.preventDefault(), o.style.opacity = "0", o.style.transform = "translateY(-10px)", setTimeout(() => {
-          o.remove(), o = null, v();
+        } else e && e.textContent === "" && c.querySelectorAll(".block").length === 1 && (t.preventDefault(), i.style.opacity = "0", i.style.transform = "translateY(-10px)", setTimeout(() => {
+          i.remove(), i = null, v();
         }, 150));
       }
-      function V(e) {
-        if (!o || e.shiftKey) return;
-        const t = o.previousElementSibling;
-        if (t && t.classList.contains("block")) {
-          e.preventDefault(), m(t);
-          const n = t.querySelector('[contenteditable="true"]');
+      function W(t) {
+        if (!i || t.shiftKey) return;
+        const e = i.previousElementSibling;
+        if (e && e.classList.contains("block")) {
+          t.preventDefault(), m(e);
+          const n = e.querySelector('[contenteditable="true"]');
           n && n.focus();
         }
       }
-      function W(e) {
-        if (!o || e.shiftKey) return;
-        const t = o.nextElementSibling;
-        if (t && t.classList.contains("block")) {
-          e.preventDefault(), m(t);
-          const n = t.querySelector('[contenteditable="true"]');
+      function X(t) {
+        if (!i || t.shiftKey) return;
+        const e = i.nextElementSibling;
+        if (e && e.classList.contains("block")) {
+          t.preventDefault(), m(e);
+          const n = e.querySelector('[contenteditable="true"]');
           n && n.focus();
         }
       }
-      function X() {
-        const e = window.getSelection();
-        return e.rangeCount === 0 ? { top: 0, left: 0, width: 0, height: 0 } : e.getRangeAt(0).getBoundingClientRect();
+      function j() {
+        const t = window.getSelection();
+        return t.rangeCount === 0 ? { top: 0, left: 0, width: 0, height: 0 } : t.getRangeAt(0).getBoundingClientRect();
       }
-      y.querySelectorAll(".block-menu-option").forEach((e) => {
-        e.addEventListener("click", async function() {
-          const t = this.getAttribute("data-action");
-          await F(t), I();
+      g.querySelectorAll(".block-menu-option").forEach((t) => {
+        t.addEventListener("click", async function() {
+          const e = this.getAttribute("data-action");
+          await V(e), I();
         });
       });
-      async function F(e) {
-        if (o)
-          switch (e) {
+      async function V(t) {
+        if (i)
+          switch (t) {
             case "delete":
-              const t = o.previousElementSibling;
-              o.style.opacity = "0", o.style.transform = "translateY(-10px)", setTimeout(() => {
-                if (o.remove(), t && t.classList.contains("block")) {
-                  m(t);
-                  const s = t.querySelector('[contenteditable="true"]');
+              const e = i.previousElementSibling;
+              i.style.opacity = "0", i.style.transform = "translateY(-10px)", setTimeout(() => {
+                if (i.remove(), e && e.classList.contains("block")) {
+                  m(e);
+                  const s = e.querySelector('[contenteditable="true"]');
                   s && s.focus();
                 }
                 v();
               }, 150);
               break;
             case "duplicate":
-              const n = o.querySelector('[contenteditable="true"]')?.innerHTML || "", i = Array.from(o.classList).find((s) => s !== "block" && s !== "focused");
-              await w(i, n, o);
+              const n = i.querySelector('[contenteditable="true"]')?.innerHTML || "", o = Array.from(i.classList).find((s) => s !== "block" && s !== "focused");
+              await L(o, n, i);
               break;
             case "turn-into":
-              q("slash");
+              D("slash");
               break;
           }
       }
-      a.addEventListener("click", async function() {
-        a.classList.contains("visible") && await w("text");
+      r.addEventListener("click", async function() {
+        r.classList.contains("visible") && await L("text");
       }), document.addEventListener("mousedown", function() {
         document.body.classList.add("using-mouse");
       }), document.addEventListener("keydown", function() {
         document.body.classList.remove("using-mouse");
       });
-    })(), N;
+    })(), $;
   }
 });
 export {
-  ee as hydrator,
-  ee as index
+  nt as hydrator,
+  nt as index
 };

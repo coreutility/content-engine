@@ -1,4 +1,4 @@
-"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const t=async o=>({set:async(n,a)=>(console.log(`--renderer [${n.data.curr.type}]`),{r:`
+"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const t=async o=>({set:async n=>(console.log(`--renderer [${n.data.curr.type}]`),{r:`
                 <div class="${o.f.name("editor_root")}" id="${o.f.name("editor_root")}"  >
 
 

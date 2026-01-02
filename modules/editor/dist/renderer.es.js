@@ -1,5 +1,5 @@
-const i = async (o) => ({
-  set: async (t, n) => (console.log(`--renderer [${t.data.curr.type}]`), {
+const a = async (o) => ({
+  set: async (t) => (console.log(`--renderer [${t.data.curr.type}]`), {
     r: `
                 <div class="${o.f.name("editor_root")}" id="${o.f.name("editor_root")}"  >
 
@@ -576,6 +576,6 @@ const i = async (o) => ({
   })
 });
 export {
-  i as index,
-  i as renderer
+  a as index,
+  a as renderer
 };
