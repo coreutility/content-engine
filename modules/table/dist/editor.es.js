@@ -1,22 +1,22 @@
 import { index as u } from "./hydrator.es.js";
-import { index as y } from "./renderer.es.js";
-const p = async () => ({
+import { index as p } from "./renderer.es.js";
+const f = async () => ({
   f: {
-    name: (a) => `${a.name}${a.id}`
+    name: (e) => `${e.name}${e.id}`
   }
 }), h = () => ({
-  set: () => "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(a) {
-    const r = Math.random() * 16 | 0;
-    return (a == "x" ? r : r & 3 | 8).toString(16);
+  set: () => "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(e) {
+    const a = Math.random() * 16 | 0;
+    return (e == "x" ? a : a & 3 | 8).toString(16);
   })
-}), g = async (a) => {
-  const r = await p();
+}), $ = async (e) => {
+  const a = await f();
   return {
-    set: async (o, c) => {
-      const s = {
+    set: async (s) => {
+      const c = {
         r: ""
         //style: ``,
-      }, i = o.data.curr || {
+      }, o = s.data.curr || {
         id: h().set(),
         type: "table",
         data: {
@@ -49,50 +49,58 @@ const p = async () => ({
             }
           ]
         }
-      }, x = await y({
+      }, d = e.f.new_emitter(), m = await p({
         f: {
-          ...a.f,
-          name: (t) => r.f.name({ id: i.id, name: t })
+          ...e.f,
+          name: (n) => a.f.name({ id: o.id, name: n })
         }
-      }), l = await u({
+      }), x = await u({
+        my: {},
         f: {
-          ...a.f,
-          name: (t) => r.f.name({ id: i.id, name: t })
+          ...e.f,
+          name: (n) => a.f.name({ id: o.id, name: n }),
+          //overwrite..
+          call: d.emit
+          //listen:listen_emitter.on,
         }
-      }), d = await x.set({
+      }), l = await m.set({
         data: {
-          curr: i
+          curr: o
         }
       });
       return setTimeout(async () => {
-        const t = await l.set({
-          data: {
-            curr: i
-          }
-        }, {
-          add: (e) => {
-            let n = e.el;
-            n?.setAttribute("contenteditable", "true"), n?.classList.add("block-content"), n?.addEventListener("click", () => {
-            }), n?.addEventListener("input", function(b) {
-              const m = n.textContent;
-              e.$d.title = m, t.evt.change();
+        (async () => d.on("msg", async (t) => {
+          if (t.type == "add") {
+            let r = t, i = r.el;
+            i?.setAttribute("contenteditable", "true"), i?.classList.add("block-content"), i?.addEventListener("click", () => {
+            }), i?.addEventListener("input", function(b) {
+              const y = i.textContent;
+              r.$d.title = y, n.evt.change();
             });
-          },
-          change: (e) => {
-            c?.change(e);
+          }
+          t.type == "change" && e.f.call("msg", {
+            type: "change",
+            _p: e,
+            _$p: t._$p,
+            custom: {}
+          });
+        }))();
+        const n = await x.set({
+          data: {
+            curr: o
           }
         });
-        ((e) => {
-          const n = document.createElement("style");
-          n.innerHTML = `${t.style}`, e.appendChild(n);
+        ((t) => {
+          const r = document.createElement("style");
+          r.innerHTML = `${n.style}`, t.appendChild(r);
         })(document.head);
-      }, 200), s.r = d.r, ((t) => {
-        const e = document.createElement("style");
-        e.innerHTML = `${d.style}`, t.appendChild(e);
-      })(document.head), s;
+      }, 200), c.r = l.r, ((n) => {
+        const t = document.createElement("style");
+        t.innerHTML = `${l.style}`, n.appendChild(t);
+      })(document.head), c;
     }
   };
 };
 export {
-  g as editor
+  $ as editor
 };

@@ -1,27 +1,40 @@
-const y = async (n) => ({
-  set: async (e, t) => {
+const d = async (t) => ({
+  set: async (e) => {
     console.log(`--hydrator [${e.data.curr.type}]`);
-    const a = {
+    const c = {
       r: "",
       style: "",
       //set..
       evt: {
         change: () => {
-          t?.change({ _$p: e });
+          t.f.call("msg", {
+            type: "change",
+            _p: t,
+            _$p: e,
+            custom: {}
+          });
         }
       }
-    }, c = document.getElementById(n.f.name("table"));
+    }, n = document.getElementById(t.f.name("table"));
     return (async () => {
-      const o = c?.querySelector("thead")?.querySelector("tr");
-      for (const [d, l] of Array.from(o?.querySelectorAll("th") || []).entries())
+      const a = n?.querySelector("thead")?.querySelector("tr");
+      for (const [o, l] of Array.from(a?.querySelectorAll("th") || []).entries())
         try {
-          t.add({ $d: e.data.curr.data.columns[d], el: l });
+          t.f.call("msg", {
+            type: "add",
+            _p: t,
+            _$p: e,
+            custom: {},
+            //set..
+            $d: e.data.curr.data.columns[o],
+            el: l
+          });
         } catch {
         }
-    })(), a;
+    })(), c;
   }
 });
 export {
-  y as hydrator,
-  y as index
+  d as hydrator,
+  d as index
 };
