@@ -254,7 +254,7 @@ setTimeout(async() => {
     console.log(`ce_listen`, _$);
  });
  await ce_call("msg",{
-  type:`on:change`,
+  type:`change`,
   _p:{},
   _$p:{},
   custom:{},

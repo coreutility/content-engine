@@ -45,7 +45,7 @@ const index = async (_p:_p_TYP) => {
                 console.log(`_p.my.emitter.on`, _$);
             });
             await _p.my[`emitter`].emit("msg", {
-                type: `on:change`,
+                type: `change`,
                 _p: _p,
                 _$p: _$p,
             });
@@ -55,7 +55,7 @@ const index = async (_p:_p_TYP) => {
             });
             setTimeout(async() => {
                 await _p.f.call("msg", {
-                type:`on:change`,
+                type:`change`,
                 _p:_p,
                 _$p:_$p,
                });
