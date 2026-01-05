@@ -21,6 +21,8 @@ type _p_TYP = {
         get_lib:(v:{name:string,run_from:any})=> any,
         set_theme:(v:{name:string,el_id:string})=> any,
         path:(v:string)=>string,
+        uuid:()=>string,
+        wait_until(conditionFn: () => boolean, interval?: number): Promise<void>,
         //set..
         call:(event:Events,_$: _$)=> any,
         listen: (event: Events, handler: (_$: _$) => any | Promise<any>) => any;

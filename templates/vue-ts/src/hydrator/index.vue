@@ -9,6 +9,8 @@ const {_p,_$p} = defineProps<{
 
 (async () => {
     //==test==//  [START]
+    /* await _p.f.wait_until(() => window.location !== null, 50); */
+
     //1
     _p.my[`emitter`] = _p.f.new_emitter();
     _p.my[`emitter`].on("msg", async (_$:any) => {

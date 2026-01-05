@@ -39,6 +39,9 @@ const index = async (_p:_p_TYP) => {
             };*/
             (async(mE) => {
             //==test==//  [START]
+            /* await _p.f.wait_until(() => window.location !== null, 50); */
+
+
             //1
             _p.my[`emitter`] = _p.f.new_emitter();
             _p.my[`emitter`].on("msg", async (_$: any) => {

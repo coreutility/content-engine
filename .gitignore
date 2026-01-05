@@ -14,3 +14,4 @@ m_o_d_e_l
 .env.json
 .myapprc.json
 .env
+package-lock.json
