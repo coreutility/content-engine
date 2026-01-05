@@ -30,8 +30,8 @@ type _p_TYP = {
         call: (event: Events, _$: _$) => any;
         listen: (event: Events, handler: (_$: _$) => any | Promise<any>) => any;
         new_emitter: () => ({
-            emit: (event: Events, payload: any) => any;
-            on: (event: Events, handler: (payload: any) => any | Promise<any>) => any;
+            emit: (event: Events, _$: _$) => any;
+            on: (event: Events, handler: (_$: _$) => any | Promise<any>) => any;
         });
     };
 };

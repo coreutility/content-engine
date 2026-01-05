@@ -1,56 +1,65 @@
-import { index as y } from "./hydrator.es.js";
-import { index as f } from "./renderer.es.js";
-const p = async () => ({
+import { index as f } from "./hydrator.es.js";
+import { index as p } from "./renderer.es.js";
+const h = async () => ({
   f: {
     name: (e) => `${e.name}${e.id}`
   }
-}), h = () => ({
+}), _ = () => ({
   set: () => "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(e) {
     const a = Math.random() * 16 | 0;
     return (e == "x" ? a : a & 3 | 8).toString(16);
   })
 }), v = async (e) => {
-  const a = await p();
+  const a = await h();
   return {
-    set: async (s) => {
+    set: async (d) => {
       const i = {
         r: ""
         //style: ``,
-      }, d = s.data.curr || {
-        id: h().set(),
+      }, s = d.data.curr || {
+        id: _().set(),
         type: "text",
         data: {
           data: ""
           //Text
         }
-      }, x = e.f.new_emitter(), m = await f({
+      }, x = e.f.new_emitter(), u = await p({
         f: {
           ...e.f,
-          name: (n) => a.f.name({ id: d.id, name: n })
+          name: (n) => a.f.name({ id: s.id, name: n })
         }
-      }), l = await y({
+      }), y = await f({
         my: {},
         f: {
           ...e.f,
-          name: (n) => a.f.name({ id: d.id, name: n }),
+          name: (n) => a.f.name({ id: s.id, name: n }),
           //overwrite..
           call: x.emit
           //listen:listen_emitter.on,
         }
-      }), o = await m.set({
+      }), o = await u.set({
         data: {
-          curr: d
+          curr: s
         }
       });
       return setTimeout(async () => {
+        const n = await y.set({
+          data: {
+            curr: s
+          }
+        });
         (async () => x.on("msg", async (t) => {
           if (t.type == "add") {
             let r = t, c = r.el;
             c?.setAttribute("contenteditable", "true"), c?.classList.add("block-content"), c?.addEventListener("click", () => {
-            }), c?.addEventListener("input", function($) {
-              const u = c.innerHTML;
-              r.$d.data = u, n.evt.change();
             });
+            const m = () => {
+              const l = c.innerHTML;
+              r.$d.data = l, n.evt.change();
+            };
+            c?.addEventListener("input", function(l) {
+              m();
+            }), m();
           }
           t.type == "change" && e.f.call("msg", {
             type: "change",
@@ -58,46 +67,7 @@ const p = async () => ({
             _$p: t._$p,
             custom: {}
           });
-        }))();
-        const n = await l.set(
-          {
-            data: {
-              curr: d
-            }
-          }
-          /*{
-                          add: (_v) => {
-                              //console.log(`--add`);
-                              //console.log(_v);
-                              //set..
-                              let _el = _v.el;
-                              _el?.setAttribute(`contenteditable`,"true"); 
-                              _el?.classList.add('block-content');
-                              _el?.addEventListener("click", () => {
-                                 //alert(``);
-                              });
-                              _el?.addEventListener('input', function (event:any) { // input | keyup
-                                  const _curr = _el.innerHTML; //_el.textContent;
-                                  //update..
-                                  _v[`$d`].data = _curr;
-                                  _hydrator_rsp.evt.change();
-                              });
-                          },
-                          change: (_v) => {
-                              //console.log(`--change`);
-                              //console.log(_v);
-                              //_$cb?.change(_v);
-                              _p.f.emitter.emit("msg", {
-                                  type:`change`,
-                                  _p:_p,
-                                  _$p:_v._$p,
-                                  custom:{},
-                              });
-                          }
-          
-                      }*/
-        );
-        ((t) => {
+        }))(), ((t) => {
           const r = document.createElement("style");
           r.innerHTML = `${n.style}`, t.appendChild(r);
         })(document.head);
