@@ -1,5 +1,6 @@
 console.log(`test_1`);
-import { ce_renderer, ce_hydrator, ce_listen, ce_call } from "content-engine-lib";
+import { ce_renderer, ce_hydrator, ce_call, ce_listen } from "content-engine-lib";
+const _ENV = `dev`; //import.meta.env.VITE_ENV;
 
 //set..
 (async() => {
@@ -10,6 +11,8 @@ let _css_client = ``;
 //set..
 let _editor_html = ``;
 let _editor_css_client = ``;
+//set..
+let _head = ``;
 let _data = {
     l:  [
 
@@ -49,9 +52,9 @@ let _data = {
       },*/
       {
         "id": "3e1bc78c-104f-4f6f-aa87-ee295db8ad8c",
-        "type": "text",
+        "type": "sample",
         "data": {
-          "data": "Hello world! ",
+          "data": "Hello world! </br> ",
         },
       }
 
@@ -59,45 +62,35 @@ let _data = {
 };
 
 //set..
-const _ce_renderer = await ce_renderer({
+const _cnf = {
   lib:[
     /*{
       renderer_src:`table`,
       hydrator_src:`table`,
       name:`table`,
     }*/
-    {
+    _ENV==`dev` ? {
       renderer_src:`http://localhost:5173/src/renderer/index.ts`,
       hydrator_src:`http://localhost:5173/src/hydrator/index.ts`,
       editor_src:`http://localhost:5173/src/editor/index.ts`,
-      name:`text`,
+      name:`sample`,
+    } : {
+      name:`sample`,
+      renderer_src:`http://localhost:5173/dist/renderer.es.js`,
+      hydrator_src:`http://localhost:5173/dist/hydrator.es.js`,
+      editor_src:`http://localhost:5173/dist/editor.es.js`,
     }
   ],
   /*lazy_lib: {
     renderer_src: `http://localhost:5173/src/l/{*}/renderer/index.ts`,
     hydrator_src: `http://localhost:5173/src/l/{*}/hydrator/index.ts`,
+    editor_src: `http://localhost:5173/src/l/{*}/editor/index.ts`,
   }*/
-});
-const _ce_hydrator = await ce_hydrator({
-  lib:[
-    /*{
-      renderer_src:`table`,
-      hydrator_src:`table`,
-      name:`table`,
-    }*/
-    {
-      renderer_src:`http://localhost:5173/src/renderer/index.ts`,
-      hydrator_src:`http://localhost:5173/src/hydrator/index.ts`,
-      editor_src:`http://localhost:5173/src/editor/index.ts`,
-      name:`text`,
-    }
-  ],
-  /*lazy_lib: {
-    renderer_src: `http://localhost:5173/src/l/{*}/renderer/index.ts`,
-    hydrator_src: `http://localhost:5173/src/l/{*}/hydrator/index.ts`,
-  }*/
-});
+};
 
+//set..
+const _ce_renderer = await ce_renderer(_cnf);
+const _ce_hydrator = await ce_hydrator(_cnf);
 
 
 
@@ -123,7 +116,7 @@ const _ce_hydrator = await ce_hydrator({
     data:{
       l:[]
     }
-  },);
+  });
 
   //set..
   _editor_html = _ce_editor_rsp.r;
@@ -173,21 +166,21 @@ const _ce_renderer_rsp =  await _ce_renderer.set({
 //set..
 _html = _ce_renderer_rsp.r;
 _css_server = _ce_renderer_rsp.style;
+_head = _ce_renderer_rsp.head;
 
 
 
 
 //}
 //if (import.meta.client) {
-setTimeout(async() => {
 const _ce_hydrator_rsp =  await _ce_hydrator.set({
   data:_data
 });
 
 //set..
 console.log(_ce_hydrator_rsp);
-//}  
-}, 200);
+//}
+
 
 
 
@@ -204,6 +197,16 @@ const mE_s = document.getElementById(_a) || (() => { let e = document.createElem
 const mE_log = document.getElementById(_b) || (() => { let e = document.createElement("div"); e.id = _b; mE_a!.appendChild(e); return e; })();
 //console.log(mE_log);
 const mE_preview = document.getElementById(_c) || (() => { let e = document.createElement("div"); e.id = _c; mE_a!.appendChild(e); return e; })();
+
+
+//set..
+(() => {
+const mE = document.createElement("div");
+mE.innerHTML = `${_head}`;
+for (const e of mE.querySelectorAll(`*`)) {
+  mE_h.appendChild(e);
+}
+})();
 
 
 //set..
@@ -242,6 +245,25 @@ await _run();
 
 
  
+
+
+//test..
+setTimeout(async() => {
+ ce_listen("msg", async(_$) => {
+    console.log(`ce_listen`, _$);
+ });
+ await ce_call("msg",{
+  type:`change`,
+  _p:{},
+  _$p:{},
+  custom:{},
+  /*where:{
+    key:`type`,
+    value:`editor`
+  },*/
+ });
+}, 200);
+
 
  
 

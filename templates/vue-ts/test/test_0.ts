@@ -15,7 +15,7 @@ let _data = {
     l:  [
       {
         "id": "3e1bc78c-104f-4f6f-aa87-ee295db8ad8c",
-        "type": "text",
+        "type": "sample",
         "data": {
           "data": "Hello world! ",
         },
@@ -27,7 +27,7 @@ let _data = {
 
 const _cnf = {
   lib:[
-      /*_ENV==`dev` ? {
+      _ENV==`dev` ? {
       name:`sample`,
       renderer_src:`http://localhost:5173/src/renderer/index.ts`,
       hydrator_src:`http://localhost:5173/src/hydrator/index.ts`,
@@ -37,16 +37,13 @@ const _cnf = {
       renderer_src:`http://localhost:5173/dist/renderer.es.js`,
       hydrator_src:`http://localhost:5173/dist/hydrator.es.js`,
       editor_src:`http://localhost:5173/dist/editor.es.js`,
-    }*/
+    }
   ],
-  lazy_lib: {
-    /*renderer_src: `http://localhost:5173/src/l/{*}/renderer/index.ts`,
+  /*lazy_lib: {
+    renderer_src: `http://localhost:5173/src/l/{*}/renderer/index.ts`,
     hydrator_src: `http://localhost:5173/src/l/{*}/hydrator/index.ts`,
-    editor_src: `http://localhost:5173/src/l/{*}/editor/index.ts`,*/
-    renderer_src:`https://cdn.jsdelivr.net/gh/coreutility/content-engine@latest/modules/{*}/dist/renderer.es.js`,
-    hydrator_src:`https://cdn.jsdelivr.net/gh/coreutility/content-engine@latest/modules/{*}/dist/hydrator.es.js`,
-    editor_src:`https://cdn.jsdelivr.net/gh/coreutility/content-engine@latest/modules/{*}/dist/editor.es.js`,
-  }
+    editor_src: `http://localhost:5173/src/l/{*}/editor/index.ts`,
+  }*/
 };
 
 //set..
