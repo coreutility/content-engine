@@ -1,5 +1,5 @@
 console.log(`test_1`);
-import { ce_renderer, ce_hydrator, ce_editor, ce_listen, ce_call } from "content-engine-lib";
+import { ce_renderer, ce_hydrator, ce_listen, ce_call } from "content-engine-lib";
 
 //set..
 (async() => {
@@ -97,12 +97,7 @@ const _ce_hydrator = await ce_hydrator({
     hydrator_src: `http://localhost:5173/src/l/{*}/hydrator/index.ts`,
   }*/
 });
-/*const _ce_editor = await ce_editor({
-  lazy_lib: {
-    renderer_src: `http://localhost:5173/src/l/{*}/renderer/index.ts`,
-    hydrator_src: `http://localhost:5173/src/l/{*}/hydrator/index.ts`,
-  }
-});*/
+
 
 
 
@@ -190,7 +185,7 @@ const _ce_hydrator_rsp =  await _ce_hydrator.set({
 });
 
 //set..
-_css_client = _ce_hydrator_rsp.style;
+console.log(_ce_hydrator_rsp);
 //}  
 }, 200);
 

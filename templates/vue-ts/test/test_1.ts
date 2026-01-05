@@ -1,5 +1,5 @@
 console.log(`test_1`);
-import { ce_renderer, ce_hydrator, ce_editor, ce_listen, ce_call } from "content-engine-lib";
+import { ce_renderer, ce_hydrator, ce_listen, ce_call } from "content-engine-lib";
 const _ENV = `dev`; //import.meta.env.VITE_ENV;
 
 //set..
@@ -49,7 +49,6 @@ const _cnf = {
 //set..
 const _ce_renderer = await ce_renderer(_cnf);
 const _ce_hydrator = await ce_hydrator(_cnf);
-/*const _ce_editor = await ce_editor(_cnf);*/
 
 
 
@@ -137,7 +136,8 @@ const _ce_hydrator_rsp =  await _ce_hydrator.set({
 });
 
 //set..
-_css_client = _ce_hydrator_rsp.style;
+console.log(_ce_hydrator_rsp);
+
 //}  
 }, 200);
 
