@@ -7,7 +7,7 @@
     "tags": [],
     "icon": "",
     "path": "modules/editor",
-    "lastUpdated": "2026-01-05T17:09:47.183Z"
+    "lastUpdated": "2026-01-05T17:15:09.252Z"
   },
   {
     "name": "explorer",
@@ -17,7 +17,7 @@
     "tags": [],
     "icon": "",
     "path": "modules/explorer",
-    "lastUpdated": "2026-01-05T17:09:47.185Z"
+    "lastUpdated": "2026-01-05T17:15:09.254Z"
   },
   {
     "name": "table",
@@ -27,7 +27,7 @@
     "tags": [],
     "icon": "",
     "path": "modules/table",
-    "lastUpdated": "2026-01-05T17:09:47.186Z"
+    "lastUpdated": "2026-01-05T17:15:09.255Z"
   },
   {
     "name": "text",
@@ -37,6 +37,6 @@
     "tags": [],
     "icon": "",
     "path": "modules/text",
-    "lastUpdated": "2026-01-05T17:09:47.187Z"
+    "lastUpdated": "2026-01-05T17:15:09.256Z"
   }
 ]
