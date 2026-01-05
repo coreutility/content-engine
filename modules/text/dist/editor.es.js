@@ -23,12 +23,12 @@ const h = async () => ({
           data: ""
           //Text
         }
-      }, x = e.f.new_emitter(), u = await p({
+      }, x = e.f.new_emitter(), l = await p({
         f: {
           ...e.f,
           name: (n) => a.f.name({ id: s.id, name: n })
         }
-      }), y = await f({
+      }), u = await f({
         my: {},
         f: {
           ...e.f,
@@ -37,13 +37,13 @@ const h = async () => ({
           call: x.emit
           //listen:listen_emitter.on,
         }
-      }), o = await u.set({
+      }), o = await l.set({
         data: {
           curr: s
         }
       });
       return setTimeout(async () => {
-        const n = await y.set({
+        const n = await u.set({
           data: {
             curr: s
           }
@@ -53,13 +53,13 @@ const h = async () => ({
             let r = t, c = r.el;
             c?.setAttribute("contenteditable", "true"), c?.classList.add("block-content"), c?.addEventListener("click", () => {
             });
-            const m = () => {
-              const l = c.innerHTML;
-              r.$d.data = l, n.evt.change();
+            const y = () => {
+              const m = c.innerHTML;
+              r.$d.data = m, n.evt.change();
             };
-            c?.addEventListener("input", function(l) {
-              m();
-            }), m();
+            c?.addEventListener("input", function(m) {
+              y();
+            });
           }
           t.type == "change" && e.f.call("msg", {
             type: "change",
