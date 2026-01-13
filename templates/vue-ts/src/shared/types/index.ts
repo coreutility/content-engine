@@ -6,7 +6,7 @@ type _$ = {
     /**pass existing `_$p` variable. */
     _$p: any,
     /**can be used to pass custom data. */
-    custom?: object,
+    custom?: any,
     /**can be used to pass eg=> `_$p[`data`].curr[`data`],`, `_$p[`data`].curr` */
     $d?:any,
     /**can be used to pass eg=> `HTMLElement` */
