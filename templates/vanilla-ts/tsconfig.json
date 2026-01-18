@@ -23,6 +23,10 @@
     "noUncheckedSideEffectImports": true,
     "noImplicitThis": false,
 
+
+    /* JS support */
+    "allowJs": true,
+
      
   },
   "include": ["src"]
