@@ -38,6 +38,7 @@ type _$p_TYP = {
             //set..
             "id": "",
             "type": "text",
+            "custom": any,
             "data": {
                 "data": string,
             },
