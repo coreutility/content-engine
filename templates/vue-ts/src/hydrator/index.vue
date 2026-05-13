@@ -2,9 +2,9 @@
 <script lang="ts" setup>
 import type { _p_TYP, _$p_TYP } from "../shared/types";
 
-const {_p,_$p} = defineProps<{
+const {_p,_pp} = defineProps<{
     _p:_p_TYP,
-    _$p:_$p_TYP,
+    _pp:_$p_TYP,
 }>();
 
 (async () => {
@@ -19,7 +19,7 @@ const {_p,_$p} = defineProps<{
     await _p.my[`emitter`].emit("msg", {
         type: `on:change`,
         _p: _p,
-        _$p: _$p,
+        _pp: _pp,
     });
 
     
@@ -31,7 +31,7 @@ const {_p,_$p} = defineProps<{
         await _p.f.call("msg", {
             type: `on:change`,
             _p: _p,
-            _$p: _$p,
+            _pp: _pp,
         });
     }, 500);
 

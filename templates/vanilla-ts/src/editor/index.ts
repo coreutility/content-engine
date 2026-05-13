@@ -7,12 +7,12 @@ const index = async (_p:_p_TYP) => {
 const _helper = await helper();
     
     return {
-        set: async (_$p:_$p_TYP,) => {
+        set: async (_pp:_$p_TYP,) => {
             const _$r = {
                 r: ``,
                 //style: ``,
             };
-            const curr = _$p.data.curr || {
+            const curr = _pp.data.curr || {
                 id: uuid().set(),
                 type: "text",
                 data: {

@@ -12,13 +12,13 @@ import Comp from "./index.vue";
 
 const index = async (_p:_p_TYP) => {
     return {
-        set: async (_$p:_$p_TYP,) => {  
-            console.log(`--renderer [${_$p[`data`][`curr`].type}]`);
+        set: async (_pp:_$p_TYP,) => {  
+            console.log(`--renderer [${_pp[`data`][`curr`].type}]`);
 
             //set..
             const props = {
                 _p:_p,
-                _$p:_$p,
+                _pp:_pp,
             };
             const app = createSSRApp(Comp, props);
             const html = await renderToString(app);
@@ -29,7 +29,7 @@ const index = async (_p:_p_TYP) => {
             //set..
             const _$u = {
                 /*value: (): string => {
-                    return _$p[`data`][`curr`].data[`data`];
+                    return _pp[`data`][`curr`].data[`data`];
                 },*/
             };
             const _$r = {

@@ -99,12 +99,12 @@ const _ce_hydrator = await ce_hydrator(_cnf);
 //if (import.meta.client) {
   ce_listen("msg", async(_$)=>{
     //console.log(`ce_listen`, _$);
-    if (_$.type==`change` && _$._$p.data.curr[`type`]==`editor`) {
-      console.log(`--ce:editor [change] `); //console.log(_v._$p.data[`curr`]);
+    if (_$.type==`change` && _$._pp.data.curr[`type`]==`editor`) {
+      console.log(`--ce:editor [change] `); //console.log(_v._pp.data[`curr`]);
 
       //test..
       let _v = _$;
-      _data.l = _v._$p.data[`curr`].data.l;
+      _data.l = _v._pp.data[`curr`].data.l;
       console.log(_data.l);
       //set..
       await _run();
@@ -254,7 +254,7 @@ setTimeout(async() => {
  await ce_call("msg",{
   type:`change`,
   _p:{},
-  _$p:{},
+  _pp:{},
   custom:{},
   /*where:{
     key:`type`,

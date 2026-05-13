@@ -3,11 +3,11 @@ type _$ = {
     type: string,
     /**pass existing `_p` variable. */
     _p: any,
-    /**pass existing `_$p` variable. */
-    _$p: any,
+    /**pass existing `_pp` variable. */
+    _pp: any,
     /**can be used to pass custom data. */
     custom?: any,
-    /**can be used to pass eg=> `_$p[`data`].curr[`data`],`, `_$p[`data`].curr` */
+    /**can be used to pass eg=> `_pp[`data`].curr[`data`],`, `_pp[`data`].curr` */
     $d?:any,
     /**can be used to pass eg=> `HTMLElement` */
     el?:any,

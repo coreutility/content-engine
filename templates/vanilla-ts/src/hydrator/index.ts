@@ -3,8 +3,8 @@ import type { _p_TYP, _$p_TYP } from "../shared/types";
 
 const index = async (_p:_p_TYP) => {
     return {
-        set: async (_$p:_$p_TYP) => {
-            console.log(`--hydrator [${_$p[`data`][`curr`].type}]`);
+        set: async (_pp:_$p_TYP) => {
+            console.log(`--hydrator [${_pp[`data`][`curr`].type}]`);
             const _$u = {
             };
             const _$r = {
@@ -27,7 +27,7 @@ const index = async (_p:_p_TYP) => {
                         _p.f.call("msg",{
                             type:`change`,
                             _p:_p,
-                            _$p:_$p,
+                            _pp:_pp,
                             custom:{},
                         });
                     }
@@ -50,7 +50,7 @@ const index = async (_p:_p_TYP) => {
             await _p.my[`emitter`].emit("msg", {
                 type: `change`,
                 _p: _p,
-                _$p: _$p,
+                _pp: _pp,
             });
             //2
             _p.f.listen("msg", async(_$)=>{
@@ -60,7 +60,7 @@ const index = async (_p:_p_TYP) => {
                 await _p.f.call("msg", {
                 type:`change`,
                 _p:_p,
-                _$p:_$p,
+                _pp:_pp,
                });
             }, 500);
             
@@ -71,10 +71,10 @@ const index = async (_p:_p_TYP) => {
             _p.f.call("msg", {
                     type: `add`,
                     _p: _p,
-                    _$p: _$p,
+                    _pp: _pp,
                     custom: {},
                     //set..
-                    $d: _$p[`data`].curr[`data`],
+                    $d: _pp[`data`].curr[`data`],
                     el: mE!
 
             });
