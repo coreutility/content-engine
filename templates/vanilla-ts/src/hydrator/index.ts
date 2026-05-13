@@ -1,9 +1,9 @@
 //import { createObserver } from "../../../u/observe/index";
-import type { _p_TYP, _$p_TYP } from "../shared/types";
+import type { _p_TYP, _pp_TYP } from "../shared/types";
 
 const index = async (_p:_p_TYP) => {
     return {
-        set: async (_pp:_$p_TYP) => {
+        set: async (_pp:_pp_TYP) => {
             console.log(`--hydrator [${_pp[`data`][`curr`].type}]`);
             const _$u = {
             };

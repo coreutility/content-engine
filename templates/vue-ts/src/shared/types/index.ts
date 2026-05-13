@@ -32,7 +32,7 @@ type _p_TYP = {
         });
     }
 };
-type _$p_TYP = {
+type _pp_TYP = {
     data: {
         curr: {
             //set..
@@ -45,4 +45,4 @@ type _$p_TYP = {
         }
     },
 };
-export type {_p_TYP,_$p_TYP};
+export type {_p_TYP,_pp_TYP};

@@ -1,4 +1,4 @@
-import type { _p_TYP, _$p_TYP } from "../shared/types";
+import type { _p_TYP, _pp_TYP } from "../shared/types";
 
 import styleInject from "style-inject";
 import css from "../style.css?inline";
@@ -12,7 +12,7 @@ import Comp from "./index.vue";
 
 const index = async (_p:_p_TYP) => {
     return {
-        set: async (_pp:_$p_TYP,) => {  
+        set: async (_pp:_pp_TYP,) => {  
             console.log(`--renderer [${_pp[`data`][`curr`].type}]`);
 
             //set..

@@ -1,4 +1,4 @@
-import type { _p_TYP, _$p_TYP } from "../shared/types";
+import type { _p_TYP, _pp_TYP } from "../shared/types";
 import { helper } from "../shared/util/helper/index";
 import { uuid } from "../shared/util/uuid/index";
 import { hydrator } from "../hydrator";
@@ -7,7 +7,7 @@ const index = async (_p:_p_TYP) => {
 const _helper = await helper();
     
     return {
-        set: async (_pp:_$p_TYP,) => {
+        set: async (_pp:_pp_TYP,) => {
             const _$r = {
                 r: ``,
                 //style: ``,
