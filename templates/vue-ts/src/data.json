@@ -13,7 +13,7 @@
                 "type": "sample",
                 "slug": "sample",
                 "data": {
-                    "data": "",
+                    "data": "Hello world!",
                     "theme": "light",
                     "foo": ""
                 }

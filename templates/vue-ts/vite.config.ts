@@ -1,5 +1,5 @@
 // vite.config.ts
-import { defineConfig } from 'vite';
+import { defineConfig,loadEnv } from 'vite';
 import dts from 'vite-plugin-dts'; // Import the plugin
 import { resolve } from "path";
 import vue from "@vitejs/plugin-vue";
@@ -9,6 +9,9 @@ import { viteStaticCopy } from 'vite-plugin-static-copy';
 import type { Plugin } from 'vite';
 import { promises as fs } from "fs";
 import path from "path";
+import vueImportToGlobal from "vite-plugin-vue-import-to-global";
+
+const env = loadEnv('', process.cwd(), '');
 
 function MinifyJsonPlugin(): Plugin {
     return {
@@ -77,8 +80,8 @@ export default defineConfig({
                 // Keep other external libraries here if needed, e.g., 'react', 'react-dom'
 
                 //set.. //Note: If un-commented then we need to externally provide vue-runtime. 
-                /*"vue", 
-                "@vue/server-renderer"*/
+                env.VITE_VUE_BUILD_MODE==`window.vue` ? "vue" : "",
+                //"@vue/server-renderer"
             ],
         },
 
@@ -86,7 +89,10 @@ export default defineConfig({
 
     },
     plugins: [vue(),
-      dts(),
+        env.VITE_VUE_BUILD_MODE==`window.vue` ? vueImportToGlobal() : undefined,
+
+
+        dts(),
         tailwindcss(),
     
         viteStaticCopy({
