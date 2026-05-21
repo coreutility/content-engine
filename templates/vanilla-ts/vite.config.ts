@@ -56,7 +56,10 @@ export default defineConfig({
             fileName: (format, entryName) => `${entryName}.${format}.js`,
 
             // Define the target output formats. Common formats for libraries are ES and UMD.
-            formats: ['es', 'cjs'], //['es', 'umd'],
+            formats: [
+                'es', 
+                //'cjs',
+            ], //['es', 'umd'],
  
         },
 
