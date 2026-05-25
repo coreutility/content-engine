@@ -74,12 +74,14 @@ const _cnf = {
       renderer_src:`http://localhost:5173/src/renderer/index.ts`,
       hydrator_src:`http://localhost:5173/src/hydrator/index.ts`,
       editor_src:`http://localhost:5173/src/editor/index.ts`,
+      custom_src:`http://localhost:5173/src/custom/index.ts`,
       name:`sample`,
     } : {
       name:`sample`,
       renderer_src:`http://localhost:5173/dist/renderer.es.js`,
       hydrator_src:`http://localhost:5173/dist/hydrator.es.js`,
       editor_src:`http://localhost:5173/dist/editor.es.js`,
+      custom_src:`http://localhost:5173/dist/custom.es.js`,
     }
   ],
   /*lazy_lib: {
@@ -89,9 +91,19 @@ const _cnf = {
   }*/
 };
 
+
+
 //set..
-const _ce_renderer = await ce_renderer(_cnf);
-const _ce_hydrator = await ce_hydrator(_cnf);
+//const _ce_renderer = await ce_renderer(_cnf); 
+const _ce_renderer = await ce_renderer({
+  ..._cnf,
+  //run:"custom"
+}); 
+//const _ce_hydrator = await ce_hydrator(_cnf);
+const _ce_hydrator = await ce_hydrator({
+  ..._cnf,
+  //run:"custom"
+});
 
 
 

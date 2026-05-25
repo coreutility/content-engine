@@ -1,6 +1,5 @@
 import type { _p_TYP, _pp_TYP } from "../shared/types";
 import { helper } from "../shared/util/helper/index";
-import { uuid } from "../shared/util/uuid/index";
 import { hydrator } from "../hydrator";
 import { renderer } from "../renderer";
 const index = async (_p:_p_TYP) => {
@@ -13,7 +12,7 @@ const _helper = await helper();
                 //style: ``,
             };
             const curr = _pp.data.curr || {
-                id: uuid().set(),
+                id: _p.f.uuid(),
                 type: "text",
                 data: {
                     data: "", //Text

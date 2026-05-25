@@ -1,4 +1,3 @@
-//import { createObserver } from "../../../u/observe/index";
 import { createApp } from "vue";
 import type { _p_TYP, _pp_TYP } from "../shared/types";
 //set..

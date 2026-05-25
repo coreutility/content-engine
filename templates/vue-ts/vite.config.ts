@@ -56,6 +56,7 @@ export default defineConfig({
               editor: resolve(__dirname, 'src/editor/index.ts'),
               hydrator: resolve(__dirname, 'src/hydrator/index.ts'),
               renderer: resolve(__dirname, 'src/renderer/index.ts'),
+              custom: resolve(__dirname, 'src/custom/index.ts'),
             },
 
             name: _d.name,//'MyTsLib',
