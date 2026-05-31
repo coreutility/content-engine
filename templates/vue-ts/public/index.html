@@ -52,7 +52,7 @@
   ce_hydrator,
   ce_call,
   ce_listen
-} from "https://cdn.jsdelivr.net/gh/coreutility/content-engine-lib@main/dist/index.es.js";
+} from "https://cdn.jsdelivr.net/gh/coreutility/content-engine-lib@latest/dist/index.es.js";
 
 
 //set..
@@ -99,6 +99,13 @@ console.log(_data.l[0]);
       hydrator_src: `${_origin}/src/l/{*}/hydrator/index.ts`,
       editor_src: `${_origin}/src/l/{*}/editor/index.ts`,
     }*/
+    custom:{
+      fn:{
+        ce_call:ce_call,
+        ce_listen:ce_listen,
+      },
+      var:{}
+    }
   };
 
   //set..

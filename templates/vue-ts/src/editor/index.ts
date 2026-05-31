@@ -20,6 +20,7 @@ const _helper = await helper();
             };
             const _renderer = await renderer({
                 my:{},
+                custom:{},
                 f:{
                     ..._p.f,
                    name:(v:string)=>_helper.f.name({id:curr[`id`],name:v})
@@ -27,6 +28,7 @@ const _helper = await helper();
             });
             const _hydrator = await hydrator({
                 my:{},
+                custom:{},
                 f:{
                     ..._p.f,
                    name:(v:string)=>_helper.f.name({id:curr[`id`],name:v})

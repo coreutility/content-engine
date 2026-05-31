@@ -1,5 +1,7 @@
 console.log(`test_1`);
 import { ce_renderer, ce_hydrator, ce_listen, ce_call } from "content-engine-lib";
+import * as Vue from "vue";
+(window as any).Vue = Vue;
 const _ENV = `dev`; //import.meta.env.VITE_ENV;
 
 //set..
@@ -47,6 +49,13 @@ const _cnf = {
     hydrator_src: `http://localhost:5173/src/l/{*}/hydrator/index.ts`,
     editor_src: `http://localhost:5173/src/l/{*}/editor/index.ts`,
   }*/
+  custom:{
+    fn:{
+      ce_call:ce_call,
+      ce_listen:ce_listen,
+    },
+    var:{}
+  }
    
 };
 
@@ -65,18 +74,10 @@ const _cnf = {
 const _ce_renderer = await ce_renderer({
   ..._cnf,
   run:"renderer",
-  custom:{
-    fn:{},
-    var:{},
-  }
 });
 const _ce_hydrator = await ce_hydrator({
   ..._cnf,
   run:"hydrator",
-  custom:{
-    fn:{},
-    var:{},
-  }
 });
 
 
