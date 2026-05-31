@@ -52,16 +52,32 @@ const _cnf = {
 
 //set..
 //const _ce_renderer = await ce_renderer(_cnf); 
+/*const _ce_renderer = await ce_renderer({
+  ..._cnf,
+  //run:"custom"
+}); */
+//const _ce_hydrator = await ce_hydrator(_cnf);
+/*const _ce_hydrator = await ce_hydrator({
+  ..._cnf,
+  //run:"custom"
+});*/
+
 const _ce_renderer = await ce_renderer({
   ..._cnf,
-  //run:"custom"
-}); 
-//const _ce_hydrator = await ce_hydrator(_cnf);
+  run:"renderer",
+  custom:{
+    fn:{},
+    var:{},
+  }
+});
 const _ce_hydrator = await ce_hydrator({
   ..._cnf,
-  //run:"custom"
+  run:"hydrator",
+  custom:{
+    fn:{},
+    var:{},
+  }
 });
-
 
 
 

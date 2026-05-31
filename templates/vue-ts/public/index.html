@@ -102,8 +102,8 @@ console.log(_data.l[0]);
   };
 
   //set..
-  const _ce_renderer = await ce_renderer(_cnf);
-  const _ce_hydrator = await ce_hydrator(_cnf);
+  const _ce_renderer = await ce_renderer({..._cnf,run:"renderer"});
+  const _ce_hydrator = await ce_hydrator({..._cnf,run:"hydrator"});
   /*const _ce_editor = await ce_editor(_cnf);*/
 
 

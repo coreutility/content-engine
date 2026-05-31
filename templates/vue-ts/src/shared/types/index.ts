@@ -16,6 +16,7 @@ type Events = | "msg" ;
 type _p_TYP = {
     /**@my module can use it to set custom variables. */
     my:any,
+    custom:any,
     f:{
         name:(v:string)=>string,
         get_lib:(v:{name:string,run_from:any})=> any,
