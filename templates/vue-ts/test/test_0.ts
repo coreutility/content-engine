@@ -54,7 +54,11 @@ const _cnf = {
       ce_call:ce_call,
       ce_listen:ce_listen,
     },
-    var:{}
+    var:{},
+    lib:{
+      //vue:Vue
+      //primevue:primevue,
+    },
   }
    
 };
