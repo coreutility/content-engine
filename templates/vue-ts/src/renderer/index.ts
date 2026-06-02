@@ -1,9 +1,6 @@
 import type { _p_TYP, _pp_TYP } from "../shared/types";
+import "../style/index.ts";
 
-import styleInject from "style-inject";
-import css from "../style.css?inline";
-//import { foo } from "./src/foo";
-styleInject(css);
 
 //set..
 import { createSSRApp } from "vue";

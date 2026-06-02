@@ -1,6 +1,6 @@
 <template>
   <div :id="_p.f.name(`root`)" class="box">
-    <p>{{ _pp.data.curr.data.data }}</p>
+    <p class="p-5">{{ _pp.data.curr.data.data }}</p>
   </div>
 </template>
 

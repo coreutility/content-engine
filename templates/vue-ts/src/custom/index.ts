@@ -1,4 +1,6 @@
 import type { _p_TYP, _pp_TYP } from "../shared/types";
+import "../style/index.ts";
+
 const index = async (_p:_p_TYP) => {
     console.log(`--custom [set]`);
     return {

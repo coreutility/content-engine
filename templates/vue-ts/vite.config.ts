@@ -10,6 +10,7 @@ import type { Plugin } from 'vite';
 import { promises as fs } from "fs";
 import path from "path";
 import vueImportToGlobal from "vite-plugin-vue-import-to-global";
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 
 const env = loadEnv('', process.cwd(), '');
 
@@ -48,8 +49,8 @@ export default defineConfig({
      'process.env': {}
     },
     build: {
-        cssCodeSplit: false,  // <— Forces CSS to stay inside JS files
-        assetsInlineLimit: 0, // ensures CSS is imported as string
+        //cssCodeSplit: false,  // <— Forces CSS to stay inside JS files
+        //assetsInlineLimit: 0, // ensures CSS is imported as string
         lib: {
             //entry: resolve(__dirname, `src/index.ts`), //'src/main.ts',
             entry: {
@@ -57,9 +58,13 @@ export default defineConfig({
               hydrator: resolve(__dirname, 'src/hydrator/index.ts'),
               renderer: resolve(__dirname, 'src/renderer/index.ts'),
               custom: resolve(__dirname, 'src/custom/index.ts'),
+              style: resolve(__dirname, 'src/style/index.ts'),
             },
 
             name: _d.name,//'MyTsLib',
+
+            cssFileName: 'style', //if css output it will be style.css
+
 
             /* fileName: (format) => `${_d.name}.${format}.js`, //`my-ts-lib.${format}.js`, */
             // Define the file name for the output bundles. 
@@ -107,8 +112,16 @@ export default defineConfig({
                   dest: '.',            // outputs to dist/data.json
                 },
               ],
-            }),
-            MinifyJsonPlugin(),
+        }),
+        MinifyJsonPlugin(),
+
+
+        //set..
+        cssInjectedByJsPlugin({
+          jsAssetsFilterFunction: function customJsAssetsfilterFunction(outputChunk) {
+             return outputChunk.fileName == 'style.es.js';
+          }
+        }),
     
         ], // Add the plugin here
 

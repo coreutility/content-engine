@@ -8,20 +8,20 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@types/node": "^24.9.1",
+    "@types/node": "^25.9.1",
     "@types/style-inject": "^0.3.5",
+    "content-engine-lib": "^1.0.82",
     "style-inject": "^0.3.0",
-    "typescript": "~5.9.3",
-    "vite": "^7.1.7",
-    "vite-plugin-dts": "^4.5.4",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.16",
+    "vite-plugin-dts": "^5.0.2",
     "vite-plugin-static-copy": "^3.1.4",
-    "content-engine-lib": "^1.0.82"
+    "vite-plugin-css-injected-by-js": "^5.0.1"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.17",
     "tailwindcss": "^4.1.17"
   },
-
   "main": "./dist/index.umd.cjs",
   "module": "./dist/index.es.js",
   "types": "./dist/index.d.ts",
@@ -35,6 +35,4 @@
   "files": [
     "dist"
   ]
-
-
 }

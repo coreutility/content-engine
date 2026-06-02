@@ -1,8 +1,6 @@
 import type { _p_TYP, _pp_TYP } from "../shared/types";
-import styleInject from "style-inject";
-import css from "../style.css?inline";
-//import { foo } from "./src/foo";
-styleInject(css);
+import "../style/index.ts";
+
 
 const index = async (_p:_p_TYP) => {
     return {
@@ -17,7 +15,9 @@ const index = async (_p:_p_TYP) => {
                 r: (() => {
                 let _n = `
                 <div class="${_p.f.name(`text`)}" id="${_p.f.name(`root`)}"  >
-                  ${_$u.value()}
+                  <div class="p-5">
+                  ${_$u.value()}                  
+                  </div>
                 </div>
                 `;
                 return _n;

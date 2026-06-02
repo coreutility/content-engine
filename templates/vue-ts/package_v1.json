@@ -8,18 +8,17 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@types/node": "^25.9.1",
+    "@types/node": "^24.10.2",
     "@types/style-inject": "^0.3.5",
     "@vitejs/plugin-vue": "^6.0.2",
     "@vue/server-renderer": "^3.5.25",
     "content-engine-lib": "^1.0.82",
     "style-inject": "^0.3.0",
-    "typescript": "^6.0.3",
-    "vite": "^8.0.16",
-    "vite-plugin-css-injected-by-js": "^5.0.1",
-    "vite-plugin-dts": "^5.0.2",
+    "typescript": "~5.9.3",
+    "vite": "^7.1.7",
+    "vite-plugin-dts": "^4.5.4",
     "vite-plugin-static-copy": "^3.1.4",
-    "vite-plugin-vue-import-to-global": "^1.0.61"
+    "vite-plugin-vue-import-to-global": "^1.0.6"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.17",
